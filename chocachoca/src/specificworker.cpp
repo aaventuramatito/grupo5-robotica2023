@@ -1,3 +1,4 @@
+
 /*
  *    Copyright (C) 2023 by YOUR NAME HERE
  *
@@ -75,20 +76,25 @@ void SpecificWorker::initialize(int period)
 
 void SpecificWorker::compute()
 {
-	//computeCODE
-	//QMutexLocker locker(mutex);
-	//try
-	//{
-	//  camera_proxy->getYImage(0,img, cState, bState);
-	//  memcpy(image_gray.data, &img[0], m_width*m_height*sizeof(uchar));
-	//  searchTags(image_gray);
-	//}
-	//catch(const Ice::Exception &e)
-	//{
-	//  std::cout << "Error reading from Camera" << e << std::endl;
-	//}
-	
-	
+	try
+	{
+        auto ldata = lidar3d_proxy->getLidarData("pearl", 0, 360, 1);
+        qInfo() << ldata.points.size();
+        const auto &points = ldata.points;
+        if(points.empty()) return;
+
+        
+
+        int offset = points.size() / 2 - points.size() / 5;
+        auto elem_min = std::min(points.begin() + offset , points.end() - offset,
+                                       [](auto a, auto b) { return (a->x*a->x+a->y*a->y+a->z*a->z) > (b->x*b->x+b->y*b->y+b->z*b->z) ; });
+
+        qInfo() << elem_min->x << elem_min->y << elem_min->z;
+	}
+	catch(const Ice::Exception &e)
+	{
+        std::cout << "Error reading from Camera" << e << std::endl;
+	}
 }
 
 int SpecificWorker::startup_check()

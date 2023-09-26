@@ -21,7 +21,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1dbe5e4-b5c0-4696-980c-efb73da7c035" name="Changes" comment="" />
+    <list default="true" id="f1dbe5e4-b5c0-4696-980c-efb73da7c035" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/chocachoca.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/chocachoca.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/config" beforeDir="false" afterPath="$PROJECT_DIR$/etc/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genericworker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/genericworker.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/specificworker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/specificworker.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +44,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -59,7 +70,11 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca",
+    "last_opened_file_path": "/home/robocomp/robocomp/interfaces/IDSLs/Lidar3D.idsl",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -93,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1695736697776</updated>
-      <workItem from="1695736698820" duration="241000" />
+      <workItem from="1695736698820" duration="5743000" />
     </task>
     <servers />
   </component>
