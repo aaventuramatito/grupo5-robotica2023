@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca"
+  "/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca.pdb"
+  "CMakeFiles/chocachoca_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/chocachoca_autogen.dir/ParseCache.txt"
+  "chocachoca_autogen"
+  "CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o"
+  "CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/Lidar3D.cpp.o"
+  "CMakeFiles/chocachoca.dir/Lidar3D.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o"
+  "CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/genericmonitor.cpp.o"
+  "CMakeFiles/chocachoca.dir/genericmonitor.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/genericworker.cpp.o"
+  "CMakeFiles/chocachoca.dir/genericworker.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/main.cpp.o"
+  "CMakeFiles/chocachoca.dir/main.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/specificmonitor.cpp.o"
+  "CMakeFiles/chocachoca.dir/specificmonitor.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/specificworker.cpp.o"
+  "CMakeFiles/chocachoca.dir/specificworker.cpp.o.d"
+  "CommonBehavior.cpp"
+  "CommonBehavior.h"
+  "Lidar3D.cpp"
+  "Lidar3D.h"
+  "ui_mainUI.h"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/chocachoca.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
