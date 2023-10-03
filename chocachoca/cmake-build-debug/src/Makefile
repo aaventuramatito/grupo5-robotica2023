@@ -347,6 +347,30 @@ genericworker.cpp.s:
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/genericworker.cpp.s
 .PHONY : genericworker.cpp.s
 
+home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.o: home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o
+.PHONY : home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.o
+
+# target to build an object file
+home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o
+.PHONY : home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o
+
+home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.i: home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.i
+.PHONY : home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.i
+
+# target to preprocess a source file
+home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.i:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.i
+.PHONY : home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.i
+
+home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.s: home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.s
+.PHONY : home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.s
+
+# target to generate assembly for a file
+home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.s:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.s
+.PHONY : home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.s
+
 home/robocomp/robocomp/classes/qlog/qlog.o: home/robocomp/robocomp/classes/qlog/qlog.cpp.o
 .PHONY : home/robocomp/robocomp/classes/qlog/qlog.o
 
@@ -524,6 +548,9 @@ help:
 	@echo "... genericworker.o"
 	@echo "... genericworker.i"
 	@echo "... genericworker.s"
+	@echo "... home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.o"
+	@echo "... home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.i"
+	@echo "... home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.s"
 	@echo "... home/robocomp/robocomp/classes/qlog/qlog.o"
 	@echo "... home/robocomp/robocomp/classes/qlog/qlog.i"
 	@echo "... home/robocomp/robocomp/classes/qlog/qlog.s"

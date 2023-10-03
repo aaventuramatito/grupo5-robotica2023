@@ -115,10 +115,12 @@ void SpecificWorker::draw_Lidar(const RoboCompLidar3D::TPoints &points, Abstract
 {
     static std::vector<QGraphicsItem*> borrar;
     for(auto &b: borrar)
+    {
         viewer->scene.removeItem(b);
+        delete b;
+    }
 
     borrar.clear();
-
 
     for (const auto &p:points) {
         auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("blue")), QBrush(QColor("blue")));
@@ -126,7 +128,6 @@ void SpecificWorker::draw_Lidar(const RoboCompLidar3D::TPoints &points, Abstract
         qInfo()<<p.x;
         borrar.push_back(point);
     }
-
 }
 
 

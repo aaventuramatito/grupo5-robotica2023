@@ -16,6 +16,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/chocachoca.dir/genericmonitor.cpp.o.d"
   "CMakeFiles/chocachoca.dir/genericworker.cpp.o"
   "CMakeFiles/chocachoca.dir/genericworker.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o"
+  "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o.d"
   "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o"
   "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o.d"
   "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o"

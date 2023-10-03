@@ -130,10 +130,24 @@ src/CMakeFiles/chocachoca.dir/specificmonitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chocachoca.dir/specificmonitor.cpp.s"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.cpp -o CMakeFiles/chocachoca.dir/specificmonitor.cpp.s
 
+src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
+src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o: /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp
+src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o"
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o -MF CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o.d -o CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o -c /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp
+
+src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.i"
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp > CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.i
+
+src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.s"
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp -o CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.s
+
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o: /home/robocomp/robocomp/classes/rapplication/rapplication.cpp
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o -MF CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o.d -o CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o -c /home/robocomp/robocomp/classes/rapplication/rapplication.cpp
 
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.i: cmake_force
@@ -147,7 +161,7 @@ src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rappli
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o: /home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o -MF CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o.d -o CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o -c /home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp
 
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.i: cmake_force
@@ -161,7 +175,7 @@ src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.c
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o: /home/robocomp/robocomp/classes/qlog/qlog.cpp
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o -MF CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o.d -o CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o -c /home/robocomp/robocomp/classes/qlog/qlog.cpp
 
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.i: cmake_force
@@ -175,7 +189,7 @@ src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.s: cm
 src/CMakeFiles/chocachoca.dir/main.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/main.cpp
 src/CMakeFiles/chocachoca.dir/main.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/chocachoca.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/chocachoca.dir/main.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/main.cpp.o -MF CMakeFiles/chocachoca.dir/main.cpp.o.d -o CMakeFiles/chocachoca.dir/main.cpp.o -c /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/main.cpp
 
 src/CMakeFiles/chocachoca.dir/main.cpp.i: cmake_force
@@ -189,7 +203,7 @@ src/CMakeFiles/chocachoca.dir/main.cpp.s: cmake_force
 src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.cpp
 src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o -MF CMakeFiles/chocachoca.dir/genericmonitor.cpp.o.d -o CMakeFiles/chocachoca.dir/genericmonitor.cpp.o -c /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.cpp
 
 src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.i: cmake_force
@@ -203,7 +217,7 @@ src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.s: cmake_force
 src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.cpp
 src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o -MF CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o.d -o CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o -c /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.cpp
 
 src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.i: cmake_force
@@ -217,7 +231,7 @@ src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.s: cmake_force
 src/CMakeFiles/chocachoca.dir/genericworker.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/genericworker.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.cpp
 src/CMakeFiles/chocachoca.dir/genericworker.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/chocachoca.dir/genericworker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/chocachoca.dir/genericworker.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/genericworker.cpp.o -MF CMakeFiles/chocachoca.dir/genericworker.cpp.o.d -o CMakeFiles/chocachoca.dir/genericworker.cpp.o -c /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.cpp
 
 src/CMakeFiles/chocachoca.dir/genericworker.cpp.i: cmake_force
@@ -231,7 +245,7 @@ src/CMakeFiles/chocachoca.dir/genericworker.cpp.s: cmake_force
 src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o: src/CommonBehavior.cpp
 src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o -MF CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o.d -o CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o -c /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/CommonBehavior.cpp
 
 src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.i: cmake_force
@@ -245,7 +259,7 @@ src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.s: cmake_force
 src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o: src/CMakeFiles/chocachoca.dir/flags.make
 src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o: src/Lidar3D.cpp
 src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o: src/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o -MF CMakeFiles/chocachoca.dir/Lidar3D.cpp.o.d -o CMakeFiles/chocachoca.dir/Lidar3D.cpp.o -c /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/Lidar3D.cpp
 
 src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.i: cmake_force
@@ -261,6 +275,7 @@ chocachoca_OBJECTS = \
 "CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/chocachoca.dir/specificworker.cpp.o" \
 "CMakeFiles/chocachoca.dir/specificmonitor.cpp.o" \
+"CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o" \
 "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o" \
 "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o" \
 "CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o" \
@@ -277,6 +292,7 @@ chocachoca_EXTERNAL_OBJECTS =
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/specificworker.cpp.o
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/specificmonitor.cpp.o
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o
@@ -287,6 +303,41 @@ chocachoca_EXTERNAL_OBJECTS =
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.o
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/build.make
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_alphamat.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_barcode.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_dnn_objdetect.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_dnn_superres.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_dpm.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_face.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_freetype.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_hfs.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_img_hash.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_intensity_transform.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_mcc.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_quality.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_rapid.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_reg.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_saliency.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_stereo.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_tracking.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_wechat_qrcode.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.5.4d
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.2.4
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libQt6OpenGL.so.6.2.4
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libQt6Xml.so.6.2.4
@@ -294,12 +345,31 @@ chocachoca_EXTERNAL_OBJECTS =
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libIceStorm++11.so
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libIce.so
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libIceStorm.so
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_text.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_optflow.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_video.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.5.4d
+/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.5.4d
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.2.4
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libGLX.so
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4
 /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca: src/CMakeFiles/chocachoca.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/bin/chocachoca"
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chocachoca.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

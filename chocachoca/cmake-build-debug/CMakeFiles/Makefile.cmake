@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+  "/home/robocomp/robocomp/cmake/modules/opencv4.cmake"
   "/home/robocomp/robocomp/cmake/modules/qt.cmake"
   "/home/robocomp/robocomp/cmake/robocomp.cmake"
   "/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/CMakeLists.txt"
@@ -158,6 +159,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlTargets-none.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlTargets.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlVersionlessTargets.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig-version.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules-release.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules.cmake"
   )
 
 # The corresponding makefile is:

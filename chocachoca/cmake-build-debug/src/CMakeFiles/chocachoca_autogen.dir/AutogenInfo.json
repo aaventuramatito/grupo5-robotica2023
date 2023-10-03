@@ -316,6 +316,13 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlAdditionalTargetInfo.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlVersionlessTargets.cmake",
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/CMakeListsSpecific.txt",
+		"/home/robocomp/robocomp/cmake/modules/opencv4.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig-version.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake",
+		"/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake",
+		"/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules-release.cmake",
 		"/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindIce.cmake",
 		"/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake",
 		"/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake",
@@ -339,6 +346,12 @@
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
+		[
+			"/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h",
+			"MU",
+			"JPJZV43UZ7/moc_abstract_graphic_viewer.cpp",
+			null
+		],
 		[
 			"/home/robocomp/robocomp/classes/qlog/qlog.h",
 			"MU",
@@ -418,6 +431,7 @@
 		"/home/robocomp/robocomp/libs",
 		"/home/robocomp/robocomp/interfaces",
 		"/include",
+		"/usr/include/opencv4",
 		"/usr/include/x86_64-linux-gnu/qt6/QtGui",
 		"/usr/include/x86_64-linux-gnu/qt6",
 		"/usr/include/x86_64-linux-gnu/qt6/QtCore",
@@ -462,6 +476,11 @@
 	"SETTINGS_FILE" : "/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/CMakeFiles/chocachoca_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp",
+			"MU",
+			null
+		],
 		[ "/home/robocomp/robocomp/classes/qlog/qlog.cpp", "MU", null ],
 		[
 			"/home/robocomp/robocomp/classes/rapplication/rapplication.cpp",
