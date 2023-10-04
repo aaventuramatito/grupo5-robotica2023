@@ -31,14 +31,16 @@
 #include <ui_mainUI.h>
 #include <CommonBehavior.h>
 
+#include <GenericBase.h>
 #include <Lidar3D.h>
+#include <OmniRobot.h>
 
 
 #define CHECK_PERIOD 5000
 #define BASIC_PERIOD 100
 
 
-using TuplePrx = std::tuple<RoboCompLidar3D::Lidar3DPrxPtr>;
+using TuplePrx = std::tuple<RoboCompLidar3D::Lidar3DPrxPtr,RoboCompOmniRobot::OmniRobotPrxPtr>;
 
 
 class GenericWorker : public QWidget, public Ui_guiDlg
@@ -55,6 +57,7 @@ public:
 
 
 	RoboCompLidar3D::Lidar3DPrxPtr lidar3d_proxy;
+	RoboCompOmniRobot::OmniRobotPrxPtr omnirobot_proxy;
 
 
 protected:

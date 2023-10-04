@@ -73,6 +73,7 @@ void SpecificWorker::initialize(int period)
         viewer = new AbstractGraphicViewer (this, QRectF(-5000, -5000, 10000, 10000));
         viewer ->add_robot(460,480,0, 100, QColor("blue"));
         viewer->show();
+        viewer->activateWindow();
 
 		timer.start(Period);
 	}
@@ -83,18 +84,20 @@ void SpecificWorker::compute()
 {
 	try
 	{
-        auto ldata = lidar3d_proxy->getLidarData("helios", 0, 360, 1);
+        auto ldata = lidar3d_proxy->getLidarData("bpearl", 0, 360, 1);
         qInfo() << ldata.points.size();
         const auto &points = ldata.points;
-        if(points.empty()) return;
+        //if(points.empty()) return;
 
-        draw_Lidar(ldata.points, viewer);
+        RoboCompLidar3D::TPoints filtered_points;
+        std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points), [](auto &p) {return p.z > 2000;});
+        draw_Lidar(filtered_points, viewer);
 
-        
 
+        ///control
         int offset = points.size() / 2 - points.size() / 5;
-        auto elem_min = std::min(points.begin() + offset , points.end() - offset,
-                                       [](auto a, auto b) { return (a->x*a->x+a->y*a->y+a->z*a->z) < (b->x*b->x+b->y*b->y+b->z*b->z) ; });
+        auto elem_min = std::min(points.begin(), points.end(),
+                                       [](auto a, auto b) { return std::hypot(a->x, a->y, a->z) < std::hypot(b->x, b->y, b->z);});
 
         //qInfo() << elem_min->x << elem_min->y << elem_min->z;
 	}
@@ -124,8 +127,8 @@ void SpecificWorker::draw_Lidar(const RoboCompLidar3D::TPoints &points, Abstract
 
     for (const auto &p:points) {
         auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("blue")), QBrush(QColor("blue")));
-        point->setPos(p.x*1000, p.y*1000);
-        qInfo()<<p.x;
+        point->setPos(p.x, p.y);
+
         borrar.push_back(point);
     }
 }

@@ -30,7 +30,7 @@
 #include <genericworker.h>
 
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
-
+#include <ranges>
 
 class SpecificWorker : public GenericWorker
 {

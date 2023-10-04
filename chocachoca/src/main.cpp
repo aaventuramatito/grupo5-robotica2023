@@ -82,6 +82,7 @@
 #include "commonbehaviorI.h"
 
 
+#include <GenericBase.h>
 
 
 
@@ -130,6 +131,7 @@ int ::chocachoca::run(int argc, char* argv[])
 	int status=EXIT_SUCCESS;
 
 	RoboCompLidar3D::Lidar3DPrxPtr lidar3d_proxy;
+	RoboCompOmniRobot::OmniRobotPrxPtr omnirobot_proxy;
 
 	string proxy, tmp;
 	initialize();
@@ -150,7 +152,23 @@ int ::chocachoca::run(int argc, char* argv[])
 	rInfo("Lidar3DProxy initialized Ok!");
 
 
-	tprx = std::make_tuple(lidar3d_proxy);
+	try
+	{
+		if (not GenericMonitor::configGetString(communicator(), prefix, "OmniRobotProxy", proxy, ""))
+		{
+			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy OmniRobotProxy\n";
+		}
+		omnirobot_proxy = Ice::uncheckedCast<RoboCompOmniRobot::OmniRobotPrx>( communicator()->stringToProxy( proxy ) );
+	}
+	catch(const Ice::Exception& ex)
+	{
+		cout << "[" << PROGRAM_NAME << "]: Exception creating proxy OmniRobot: " << ex;
+		return EXIT_FAILURE;
+	}
+	rInfo("OmniRobotProxy initialized Ok!");
+
+
+	tprx = std::make_tuple(lidar3d_proxy,omnirobot_proxy);
 	SpecificWorker *worker = new SpecificWorker(tprx, startup_check_flag);
 	//Monitor thread
 	SpecificMonitor *monitor = new SpecificMonitor(worker,communicator());

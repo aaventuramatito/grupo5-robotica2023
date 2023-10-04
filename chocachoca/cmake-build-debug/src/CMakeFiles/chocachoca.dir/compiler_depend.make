@@ -2093,7 +2093,8 @@ src/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: src/cho
   src/chocachoca_autogen/EWIEGA46WW/moc_specificworker.cpp \
   /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h \
   /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
-  /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h
+  /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
+  /usr/include/c++/11/ranges
 
 src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.cpp \
   /usr/include/stdc-predef.h \
@@ -10235,6 +10236,7 @@ src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/robocomp/robocomp/components/gru
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsPolygonItem \
+  /usr/include/c++/11/ranges \
   /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h \
   /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.h
 
@@ -12814,7 +12816,8 @@ src/CMakeFiles/chocachoca.dir/specificworker.cpp.o: /home/robocomp/robocomp/comp
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsPolygonItem \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitem.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h \
+  /usr/include/c++/11/ranges
 
 
 /usr/include/IceStorm/Config.h:
@@ -14358,6 +14361,8 @@ src/CommonBehavior.h:
 /usr/include/Ice/ProxyF.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qundoview.h:
+
+/usr/include/c++/11/ranges:
 
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
