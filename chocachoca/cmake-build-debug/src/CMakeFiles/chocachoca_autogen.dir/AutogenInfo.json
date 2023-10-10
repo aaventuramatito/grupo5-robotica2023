@@ -463,7 +463,9 @@
 	"MOC_SKIP" : 
 	[
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/CommonBehavior.cpp",
+		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/GenericBase.cpp",
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/Lidar3D.cpp",
+		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/OmniRobot.cpp",
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/ui_mainUI.h"
 	],
 	"MULTI_CONFIG" : false,
@@ -524,7 +526,9 @@
 	"UIC_SKIP" : 
 	[
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/CommonBehavior.cpp",
+		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/GenericBase.cpp",
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/Lidar3D.cpp",
+		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/OmniRobot.cpp",
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug/src/ui_mainUI.h",
 		"/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/mainUI.ui"
 	],

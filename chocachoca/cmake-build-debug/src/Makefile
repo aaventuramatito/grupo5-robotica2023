@@ -227,6 +227,30 @@ CommonBehavior.cpp.s:
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/CommonBehavior.cpp.s
 .PHONY : CommonBehavior.cpp.s
 
+GenericBase.o: GenericBase.cpp.o
+.PHONY : GenericBase.o
+
+# target to build an object file
+GenericBase.cpp.o:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/GenericBase.cpp.o
+.PHONY : GenericBase.cpp.o
+
+GenericBase.i: GenericBase.cpp.i
+.PHONY : GenericBase.i
+
+# target to preprocess a source file
+GenericBase.cpp.i:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/GenericBase.cpp.i
+.PHONY : GenericBase.cpp.i
+
+GenericBase.s: GenericBase.cpp.s
+.PHONY : GenericBase.s
+
+# target to generate assembly for a file
+GenericBase.cpp.s:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/GenericBase.cpp.s
+.PHONY : GenericBase.cpp.s
+
 Lidar3D.o: Lidar3D.cpp.o
 .PHONY : Lidar3D.o
 
@@ -250,6 +274,30 @@ Lidar3D.s: Lidar3D.cpp.s
 Lidar3D.cpp.s:
 	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/Lidar3D.cpp.s
 .PHONY : Lidar3D.cpp.s
+
+OmniRobot.o: OmniRobot.cpp.o
+.PHONY : OmniRobot.o
+
+# target to build an object file
+OmniRobot.cpp.o:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o
+.PHONY : OmniRobot.cpp.o
+
+OmniRobot.i: OmniRobot.cpp.i
+.PHONY : OmniRobot.i
+
+# target to preprocess a source file
+OmniRobot.cpp.i:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/OmniRobot.cpp.i
+.PHONY : OmniRobot.cpp.i
+
+OmniRobot.s: OmniRobot.cpp.s
+.PHONY : OmniRobot.s
+
+# target to generate assembly for a file
+OmniRobot.cpp.s:
+	cd /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chocachoca.dir/build.make src/CMakeFiles/chocachoca.dir/OmniRobot.cpp.s
+.PHONY : OmniRobot.cpp.s
 
 chocachoca_autogen/mocs_compilation.o: chocachoca_autogen/mocs_compilation.cpp.o
 .PHONY : chocachoca_autogen/mocs_compilation.o
@@ -533,9 +581,15 @@ help:
 	@echo "... CommonBehavior.o"
 	@echo "... CommonBehavior.i"
 	@echo "... CommonBehavior.s"
+	@echo "... GenericBase.o"
+	@echo "... GenericBase.i"
+	@echo "... GenericBase.s"
 	@echo "... Lidar3D.o"
 	@echo "... Lidar3D.i"
 	@echo "... Lidar3D.s"
+	@echo "... OmniRobot.o"
+	@echo "... OmniRobot.i"
+	@echo "... OmniRobot.s"
 	@echo "... chocachoca_autogen/mocs_compilation.o"
 	@echo "... chocachoca_autogen/mocs_compilation.i"
 	@echo "... chocachoca_autogen/mocs_compilation.s"

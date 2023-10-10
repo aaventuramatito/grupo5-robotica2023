@@ -52,10 +52,6 @@ bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
 //	catch(const std::exception &e) { qFatal("Error reading config params"); }
 
 
-
-
-
-
 	return true;
 }
 
@@ -84,22 +80,49 @@ void SpecificWorker::compute()
 {
 	try
 	{
-        auto ldata = lidar3d_proxy->getLidarData("bpearl", 0, 360, 1);
-        qInfo() << ldata.points.size();
+        auto ldata = lidar3d_proxy->getLidarData("bpearl", 0, 2*M_PI, 1);
+        //qInfo() << ldata.points.size();
         const auto &points = ldata.points;
-        //if(points.empty()) return;
+        if(points.empty()) return;
 
+
+        ///Filtrar puntos
         RoboCompLidar3D::TPoints filtered_points;
         std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points), [](auto &p) {return p.z > 2000;});
         draw_Lidar(filtered_points, viewer);
 
 
         ///control
-        int offset = points.size() / 2 - points.size() / 5;
-        auto elem_min = std::min(points.begin(), points.end(),
-                                       [](auto a, auto b) { return std::hypot(a->x, a->y, a->z) < std::hypot(b->x, b->y, b->z);});
+        int offset = filtered_points.size() / 2 - filtered_points.size() / 3;
+        auto elem_min = std::min_element(filtered_points.begin() + offset, filtered_points.end() - offset,
+                                       [](auto a, auto b) { return std::hypot(a.x, a.y) < std::hypot(b.x, b.y);});
 
-        //qInfo() << elem_min->x << elem_min->y << elem_min->z;
+        const float MIN_DISTANCE = 1000;
+        qInfo() << std::hypot(elem_min->x, elem_min->y);
+        if(std::hypot(elem_min->x, elem_min->y) < MIN_DISTANCE)
+        {
+            //Stop the ROBOT && START TURNING
+            try
+            {
+                omnirobot_proxy->setSpeedBase(0, 0, 0.5);
+            }
+            catch(const Ice::Exception &e)
+            {
+                std::cout << "Error reading from camera" << e << std::endl;
+            }
+        }
+        else
+        {
+            //Start the ROBOT
+            try
+            {
+                omnirobot_proxy->setSpeedBase(1000/1000.f, 0, 0);
+            }
+            catch(const Ice::Exception &e)
+            {
+                std::cout << "Error reading from camera" << e << std::endl;
+            }
+        }
 	}
 	catch(const Ice::Exception &e)
 	{
