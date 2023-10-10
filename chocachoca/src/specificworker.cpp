@@ -78,56 +78,38 @@ void SpecificWorker::initialize(int period)
 
 void SpecificWorker::compute()
 {
-	try
-	{
-        auto ldata = lidar3d_proxy->getLidarData("bpearl", 0, 2*M_PI, 1);
-        //qInfo() << ldata.points.size();
-        const auto &points = ldata.points;
-        if(points.empty()) return;
+    auto ldata = lidar3d_proxy->getLidarData("bpearl", 0, 2*M_PI, 1);
+    //qInfo() << ldata.points.size();
+    const auto &points = ldata.points;
+    if(points.empty()) return;
 
+    ///Filtrar puntos
+    std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points), [](auto &p) {return p.z > 2000;});
+    draw_Lidar(filtered_points, viewer);
 
-        ///Filtrar puntos
-        RoboCompLidar3D::TPoints filtered_points;
-        std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points), [](auto &p) {return p.z > 2000;});
-        draw_Lidar(filtered_points, viewer);
+    std::tuple <Estado, RobotSpeed> res;
+    switch(estado)
+    {
+        case Estado::IDLE:
+            break;
+        case Estado::FOLLOW_ALL:
+            break;
+        case Estado::STRAIGHT_LINE:
+            res = chocachoca();
+            break;
+        case Estado::SPIRAL:
+            break;
+    };
 
-
-        ///control
-        int offset = filtered_points.size() / 2 - filtered_points.size() / 3;
-        auto elem_min = std::min_element(filtered_points.begin() + offset, filtered_points.end() - offset,
-                                       [](auto a, auto b) { return std::hypot(a.x, a.y) < std::hypot(b.x, b.y);});
-
-        const float MIN_DISTANCE = 1000;
-        qInfo() << std::hypot(elem_min->x, elem_min->y);
-        if(std::hypot(elem_min->x, elem_min->y) < MIN_DISTANCE)
-        {
-            //Stop the ROBOT && START TURNING
-            try
-            {
-                omnirobot_proxy->setSpeedBase(0, 0, 0.5);
-            }
-            catch(const Ice::Exception &e)
-            {
-                std::cout << "Error reading from camera" << e << std::endl;
-            }
-        }
-        else
-        {
-            //Start the ROBOT
-            try
-            {
-                omnirobot_proxy->setSpeedBase(1000/1000.f, 0, 0);
-            }
-            catch(const Ice::Exception &e)
-            {
-                std::cout << "Error reading from camera" << e << std::endl;
-            }
-        }
-	}
-	catch(const Ice::Exception &e)
-	{
-        std::cout << "Error reading from Camera" << e << std::endl;
-	}
+    try
+    {
+        const auto &[adv, side, rot] = std::get<RobotSpeed>(res);
+        omnirobot_proxy->setSpeedBase(adv, side, rot);
+    }
+    catch(const Ice::Exception &e)
+    {
+        std::cout << "Error reading from camera" << e << std::endl;
+    }
 }
 
 int SpecificWorker::startup_check()
@@ -154,6 +136,41 @@ void SpecificWorker::draw_Lidar(const RoboCompLidar3D::TPoints &points, Abstract
 
         borrar.push_back(point);
     }
+}
+
+
+///Estados
+SpecificWorker::Estado SpecificWorker::chocachoca()
+{
+    int offset = filtered_points.size() / 2 - filtered_points.size() / 3;
+    auto elem_min = std::min_element(filtered_points.begin() + offset, filtered_points.end() - offset,
+                                     [](auto a, auto b) { return std::hypot(a.x, a.y) < std::hypot(b.x, b.y);});
+
+    RobotSpeed robotspeed;
+    const float MIN_DISTANCE = 1000;
+    qInfo() << std::hypot(elem_min->x, elem_min->y);
+    if(std::hypot(elem_min->x, elem_min->y) < MIN_DISTANCE)
+    {
+        //Stop the ROBOT && START TURNING
+        robotspeed = RobotSpeed{.adv = 0, .side = 0, .rot = 0.5}
+    }
+    else
+    {
+        //Start the ROBOT
+        try
+        {
+            omnirobot_proxy->setSpeedBase(1000/1000.f, 0, 0);
+        }
+        catch(const Ice::Exception &e)
+        {
+            std::cout << "Error reading from camera" << e << std::endl;
+        }
+    }
+    catch(const Ice::Exception &e)
+    {
+        std::cout << "Error reading from Camera" << e << std::endl;
+    }
+    return SpecificWorker::Estado::STRAIGHT_LINE;
 }
 
 

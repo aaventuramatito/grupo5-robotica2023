@@ -49,8 +49,20 @@ public slots:
 private:
 	bool startup_check_flag;
     AbstractGraphicViewer *viewer;
+    RoboCompLidar3D::TPoints filtered_points;
 
     void draw_Lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
+
+
+    struct RobotSpeed
+    {
+        float adv = 0, side = 0, tor = 0;
+    };
+
+    //Para crear clase Estados e inicializarlas
+    enum class Estado {IDLE, FOLLOW_ALL, STRAIGHT_LINE, SPIRAL};
+    Estado estado = Estado::IDLE;
+    std::tuple<Estado, Robotspeed> chocachoca();
 };
 
 #endif
