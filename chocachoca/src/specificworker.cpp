@@ -1,4 +1,3 @@
-
 /*
  *    Copyright (C) 2023 by YOUR NAME HERE
  *
@@ -65,9 +64,9 @@ void SpecificWorker::initialize(int period)
 	}
 	else
 	{
-        //Inicializaciones personales
-        viewer = new AbstractGraphicViewer (this, QRectF(-5000, -5000, 10000, 10000));
-        viewer ->add_robot(460,480,0, 100, QColor("blue"));
+        // Inicializaciones personales
+        viewer = new AbstractGraphicViewer(this, QRectF(-5000, -5000, 10000, 10000));
+        viewer->add_robot(460, 480, 0, 100, QColor("Blue"));
         viewer->show();
         viewer->activateWindow();
 
@@ -83,16 +82,17 @@ void SpecificWorker::compute()
     const auto &points = ldata.points;
     if(points.empty()) return;
 
-    ///Filtrar puntos
-    std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points), [](auto &p) {return p.z > 2000;});
-    draw_Lidar(filtered_points, viewer);
+    /// Filter points above 2000
+    std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points), [](auto &p){ return p.z > 2000;});
+    draw_lidar(filtered_points, viewer);
+    std::tuple<Estado, RobotSpeed> res;
 
-    std::tuple <Estado, RobotSpeed> res;
+    /// State machine
     switch(estado)
     {
         case Estado::IDLE:
             break;
-        case Estado::FOLLOW_ALL:
+        case Estado::FOLLOW_WALL:
             break;
         case Estado::STRAIGHT_LINE:
             res = chocachoca();
@@ -107,19 +107,17 @@ void SpecificWorker::compute()
         omnirobot_proxy->setSpeedBase(adv, side, rot);
     }
     catch(const Ice::Exception &e)
-    {
-        std::cout << "Error reading from camera" << e << std::endl;
-    }
+    {  std::cout << "Error reading from Camera" << e << std::endl; 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////
 int SpecificWorker::startup_check()
 {
 	std::cout << "Startup check" << std::endl;
 	QTimer::singleShot(200, qApp, SLOT(quit()));
 	return 0;
 }
-
-void SpecificWorker::draw_Lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer)
+void SpecificWorker::draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer)
 {
     static std::vector<QGraphicsItem*> borrar;
     for(auto &b: borrar)
@@ -130,52 +128,33 @@ void SpecificWorker::draw_Lidar(const RoboCompLidar3D::TPoints &points, Abstract
 
     borrar.clear();
 
-    for (const auto &p:points) {
+    for(const auto &p: points)
+    {
         auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("blue")), QBrush(QColor("blue")));
         point->setPos(p.x, p.y);
-
+        
         borrar.push_back(point);
     }
 }
-
-
-///Estados
-SpecificWorker::Estado SpecificWorker::chocachoca()
+///////////////////////////////////////////////////////////
+/// Estados
+//////////////////////////////////////////////////////////
+std::tuple<SpecificWorker::Estado, SpecificWorker::RobotSpeed> SpecificWorker::chocachoca()
 {
-    int offset = filtered_points.size() / 2 - filtered_points.size() / 3;
-    auto elem_min = std::min_element(filtered_points.begin() + offset, filtered_points.end() - offset,
+    int offset = filtered_points.size()/2-filtered_points.size()/3;
+    auto min_elem = std::min_element(filtered_points.begin()+offset, filtered_points.end()-offset,
                                      [](auto a, auto b) { return std::hypot(a.x, a.y) < std::hypot(b.x, b.y);});
 
-    RobotSpeed robotspeed;
+    RobotSpeed robot_speed;
+    Estado estado;
     const float MIN_DISTANCE = 1000;
-    qInfo() << std::hypot(elem_min->x, elem_min->y);
-    if(std::hypot(elem_min->x, elem_min->y) < MIN_DISTANCE)
-    {
-        //Stop the ROBOT && START TURNING
-        robotspeed = RobotSpeed{.adv = 0, .side = 0, .rot = 0.5}
-    }
+    if(std::hypot(min_elem->x, min_elem->y) < MIN_DISTANCE)
+        robot_speed = RobotSpeed{.adv=0, .side=0, .rot=0.5};
     else
-    {
-        //Start the ROBOT
-        try
-        {
-            omnirobot_proxy->setSpeedBase(1000/1000.f, 0, 0);
-        }
-        catch(const Ice::Exception &e)
-        {
-            std::cout << "Error reading from camera" << e << std::endl;
-        }
-    }
-    catch(const Ice::Exception &e)
-    {
-        std::cout << "Error reading from Camera" << e << std::endl;
-    }
-    return SpecificWorker::Estado::STRAIGHT_LINE;
+        robot_speed = RobotSpeed{.adv=1, .side=0, .rot=0};
+
+    return std::make_tuple(Estado::STRAIGHT_LINE, robot_speed);
 }
-
-
-
-
 /**************************************/
 // From the RoboCompLidar3D you can call this methods:
 // this->lidar3d_proxy->getLidarData(...)

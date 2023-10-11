@@ -23,7 +23,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4da97818-1f51-4a23-a9be-fced8c6b57ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/specificworker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/specificworker.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.h" afterDir="false" />
     </list>
@@ -65,7 +64,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aaron/Escritorio/grupo5-robotica2023/chocachoca&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -101,6 +100,8 @@
       <workItem from="1696945604783" duration="50000" />
       <workItem from="1696945662666" duration="4436000" />
       <workItem from="1696950892234" duration="1002000" />
+      <workItem from="1697033316971" duration="131000" />
+      <workItem from="1697033701442" duration="7000" />
     </task>
     <servers />
   </component>

@@ -22,13 +22,10 @@
 	@author authorname
 */
 
-
-
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 
 #include <genericworker.h>
-
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
 #include <ranges>
 
@@ -46,23 +43,23 @@ public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
+
 private:
 	bool startup_check_flag;
     AbstractGraphicViewer *viewer;
     RoboCompLidar3D::TPoints filtered_points;
 
-    void draw_Lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
-
-
     struct RobotSpeed
     {
-        float adv = 0, side = 0, tor = 0;
+        float adv=0, side=0, rot=0;
     };
+    void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
 
-    //Para crear clase Estados e inicializarlas
-    enum class Estado {IDLE, FOLLOW_ALL, STRAIGHT_LINE, SPIRAL};
+    // Estados
+    enum class Estado { IDLE, FOLLOW_WALL, STRAIGHT_LINE, SPIRAL };
     Estado estado = Estado::IDLE;
-    std::tuple<Estado, Robotspeed> chocachoca();
+    std::tuple<Estado, RobotSpeed> chocachoca();
+
 };
 
 #endif
