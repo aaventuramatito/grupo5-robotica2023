@@ -1512,7 +1512,7 @@ src/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o: src/OmniRobot.cpp \
 
 src/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: src/chocachoca_autogen/mocs_compilation.cpp \
   /usr/include/stdc-predef.h \
-  src/chocachoca_autogen/JPJZV43UZ7/moc_abstract_graphic_viewer.cpp \
+  src/chocachoca_autogen/AF5EVGCUJC/moc_abstract_graphic_viewer.cpp \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -1754,7 +1754,7 @@ src/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: src/cho
   /usr/include/c++/11/bits/uses_allocator_args.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
+  /robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -1996,7 +1996,7 @@ src/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: src/cho
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
   src/chocachoca_autogen/EWIEGA46WW/moc_genericmonitor.cpp \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
   /usr/include/Ice/Ice.h \
   /usr/include/IceUtil/PushDisableWarnings.h \
   /usr/include/Ice/Config.h \
@@ -2482,10 +2482,10 @@ src/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: src/cho
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qwineventnotifier.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qxmlstream.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreversion.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/include/boost/format.hpp \
   /usr/include/boost/detail/workaround.hpp \
   /usr/include/boost/config/workaround.hpp \
@@ -2843,19 +2843,19 @@ src/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: src/cho
   src/OmniRobot.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen \
   src/chocachoca_autogen/EWIEGA46WW/moc_genericworker.cpp \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
   src/chocachoca_autogen/EWIEGA46WW/moc_specificmonitor.cpp \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
   src/chocachoca_autogen/EWIEGA46WW/moc_specificworker.cpp \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
   /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
   /usr/include/c++/11/ranges
 
-src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.cpp \
+src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.cpp \
   /usr/include/stdc-predef.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.h \
   /usr/include/Ice/Ice.h \
   /usr/include/IceUtil/PushDisableWarnings.h \
   /usr/include/Ice/Config.h \
@@ -3283,9 +3283,9 @@ src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: /home/robocomp/robocomp/com
   /usr/include/Ice/UUID.h \
   /usr/include/IceUtil/UUID.h \
   src/CommonBehavior.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCore \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCoreDepends \
@@ -4153,11 +4153,11 @@ src/CMakeFiles/chocachoca.dir/commonbehaviorI.cpp.o: /home/robocomp/robocomp/com
   src/GenericBase.h \
   src/Lidar3D.h \
   src/OmniRobot.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h
 
-src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.cpp \
+src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o: /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.cpp \
   /usr/include/stdc-predef.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
   /usr/include/Ice/Ice.h \
   /usr/include/IceUtil/PushDisableWarnings.h \
   /usr/include/Ice/Config.h \
@@ -5042,10 +5042,10 @@ src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o: /home/robocomp/robocomp/comp
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qwineventnotifier.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qxmlstream.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreversion.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/include/boost/format.hpp \
   /usr/include/boost/detail/workaround.hpp \
   /usr/include/boost/config/workaround.hpp \
@@ -5456,10 +5456,10 @@ src/CMakeFiles/chocachoca.dir/genericmonitor.cpp.o: /home/robocomp/robocomp/comp
   src/Lidar3D.h \
   src/OmniRobot.h
 
-src/CMakeFiles/chocachoca.dir/genericworker.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.cpp \
+src/CMakeFiles/chocachoca.dir/genericworker.cpp.o: /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.cpp \
   /usr/include/stdc-predef.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -5478,7 +5478,7 @@ src/CMakeFiles/chocachoca.dir/genericworker.cpp.o: /home/robocomp/robocomp/compo
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCore \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCoreDepends \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
@@ -7194,7 +7194,7 @@ src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_vi
 src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/qlog/qlog.cpp.o: /home/robocomp/robocomp/classes/qlog/qlog.cpp \
   /usr/include/stdc-predef.h \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCore \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCoreDepends \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
@@ -9477,9 +9477,9 @@ src/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.c
   /usr/include/x86_64-linux-gnu/bits/sigthread.h \
   /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
   src/chocachoca_autogen/include/moc_sigwatch.cpp \
-  /home/robocomp/robocomp/classes/sigwatch/sigwatch.h
+  /robocomp/robocomp/classes/sigwatch/sigwatch.h
 
-src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/main.cpp \
+src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/main.cpp \
   /usr/include/stdc-predef.h \
   /usr/include/signal.h \
   /usr/include/features.h \
@@ -10767,7 +10767,7 @@ src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/robocomp/robocomp/components/gru
   /home/robocomp/robocomp/classes/sigwatch/sigwatch.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/include/boost/format.hpp \
   /usr/include/boost/detail/workaround.hpp \
   /usr/include/boost/config/workaround.hpp \
@@ -10975,9 +10975,9 @@ src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/robocomp/robocomp/components/gru
   /usr/include/boost/format/parsing.hpp \
   /usr/include/boost/format/free_funcs.hpp \
   /usr/include/boost/format/detail/unset_macros.hpp \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QtGui \
   src/ui_mainUI.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
@@ -10986,8 +10986,8 @@ src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/robocomp/robocomp/components/gru
   src/GenericBase.h \
   src/Lidar3D.h \
   src/OmniRobot.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
   /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene \
@@ -11002,13 +11002,13 @@ src/CMakeFiles/chocachoca.dir/main.cpp.o: /home/robocomp/robocomp/components/gru
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsPolygonItem \
   /usr/include/c++/11/ranges \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.h
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.h
 
-src/CMakeFiles/chocachoca.dir/specificmonitor.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.cpp \
+src/CMakeFiles/chocachoca.dir/specificmonitor.cpp.o: /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.cpp \
   /usr/include/stdc-predef.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h \
   /usr/include/Ice/Ice.h \
   /usr/include/IceUtil/PushDisableWarnings.h \
   /usr/include/Ice/Config.h \
@@ -11893,10 +11893,10 @@ src/CMakeFiles/chocachoca.dir/specificmonitor.cpp.o: /home/robocomp/robocomp/com
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qwineventnotifier.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qxmlstream.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreversion.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/include/boost/format.hpp \
   /usr/include/boost/detail/workaround.hpp \
   /usr/include/boost/config/workaround.hpp \
@@ -12307,11 +12307,11 @@ src/CMakeFiles/chocachoca.dir/specificmonitor.cpp.o: /home/robocomp/robocomp/com
   src/Lidar3D.h \
   src/OmniRobot.h
 
-src/CMakeFiles/chocachoca.dir/specificworker.cpp.o: /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.cpp \
+src/CMakeFiles/chocachoca.dir/specificworker.cpp.o: /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.cpp \
   /usr/include/stdc-predef.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -12330,7 +12330,7 @@ src/CMakeFiles/chocachoca.dir/specificworker.cpp.o: /home/robocomp/robocomp/comp
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /home/robocomp/robocomp/classes/qlog/qlog.h \
-  /home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
+  /home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCore \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCoreDepends \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
@@ -13685,6 +13685,8 @@ src/CMakeFiles/chocachoca.dir/specificworker.cpp.o: /home/robocomp/robocomp/comp
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h:
 
+/robocomp/robocomp/classes/sigwatch/sigwatch.h:
+
 /usr/include/x86_64-linux-gnu/bits/sigthread.h:
 
 /usr/include/IceStorm/Metrics.h:
@@ -13693,11 +13695,11 @@ src/CMakeFiles/chocachoca.dir/specificworker.cpp.o: /home/robocomp/robocomp/comp
 
 /usr/include/x86_64-linux-gnu/bits/sigstack.h:
 
-/usr/include/x86_64-linux-gnu/sys/ucontext.h:
-
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
 
@@ -13735,21 +13737,9 @@ src/CMakeFiles/chocachoca.dir/specificworker.cpp.o: /home/robocomp/robocomp/comp
 
 /home/robocomp/robocomp/classes/rapplication/rapplication.h:
 
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.cpp:
-
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.cpp:
-
-/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
-
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.h:
-
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.cpp:
-
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h:
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.cpp:
 
 src/chocachoca_autogen/EWIEGA46WW/moc_specificworker.cpp:
-
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen:
 
@@ -13809,9 +13799,9 @@ src/ui_mainUI.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qbackingstore.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qactiongroup.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qaccessibleplugin.h:
 
@@ -13943,6 +13933,12 @@ src/ui_mainUI.h:
 
 /usr/include/boost/preprocessor/iteration/iterate.hpp:
 
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qfiledialog.h:
+
+/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h:
+
+/usr/include/boost/preprocessor/config/config.hpp:
+
 /usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintDevice:
 
 /usr/include/boost/preprocessor/cat.hpp:
@@ -13968,8 +13964,6 @@ src/ui_mainUI.h:
 /usr/include/boost/config/pragma_message.hpp:
 
 /usr/include/boost/move/core.hpp:
-
-/usr/include/boost/type_traits/is_nothrow_move_constructible.hpp:
 
 /usr/include/boost/type_traits/has_nothrow_assign.hpp:
 
@@ -14065,8 +14059,6 @@ src/ui_mainUI.h:
 
 /usr/include/boost/throw_exception.hpp:
 
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.cpp:
-
 /usr/include/boost/static_assert.hpp:
 
 /usr/include/boost/preprocessor/repetition/enum_binary_params.hpp:
@@ -14094,6 +14086,8 @@ src/ui_mainUI.h:
 /usr/include/boost/format/format_fwd.hpp:
 
 /usr/include/boost/format/detail/workarounds_gcc-2_95.hpp:
+
+/usr/include/boost/config/helper_macros.hpp:
 
 /usr/include/boost/config/detail/suffix.hpp:
 
@@ -14123,11 +14117,19 @@ src/ui_mainUI.h:
 
 /usr/include/boost/format.hpp:
 
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qactiongroup.h:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qwineventnotifier.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h:
 
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qurlquery.h:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h:
 
@@ -14322,6 +14324,8 @@ src/ui_mainUI.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/amxtileintrin.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qprocess.h:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qplugin.h:
 
@@ -14851,8 +14855,6 @@ src/chocachoca_autogen/include/moc_sigwatch.cpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
 
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericworker.h:
-
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/c++/11/backward/binders.h:
@@ -15073,8 +15075,6 @@ src/CommonBehavior.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/main.cpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/enqcmdintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
@@ -15100,6 +15100,8 @@ src/CommonBehavior.h:
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/Ice/Metrics.h:
+
+/usr/include/c++/11/bits/locale_facets.tcc:
 
 /usr/include/c++/11/list:
 
@@ -15176,6 +15178,8 @@ src/CommonBehavior.h:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qfloat16.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificmonitor.cpp:
 
 /usr/include/c++/11/bits/string_view.tcc:
 
@@ -15270,6 +15274,8 @@ src/GenericBase.h:
 /usr/include/c++/11/bits/std_thread.h:
 
 /usr/include/c++/11/string:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
 
@@ -15435,8 +15441,6 @@ src/GenericBase.h:
 
 /usr/include/Ice/BuiltinSequences.h:
 
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/specificworker.cpp:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollbar.h:
 
 /usr/include/boost/config/detail/select_stdlib_config.hpp:
@@ -15489,19 +15493,17 @@ src/OmniRobot.cpp:
 
 src/chocachoca_autogen/mocs_compilation.cpp:
 
-/usr/include/boost/config/helper_macros.hpp:
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
 
-src/chocachoca_autogen/JPJZV43UZ7/moc_abstract_graphic_viewer.cpp:
+src/chocachoca_autogen/AF5EVGCUJC/moc_abstract_graphic_viewer.cpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qfiledialog.h:
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
 
-/usr/include/boost/preprocessor/config/config.hpp:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qcollator.h:
 
-/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h:
+/usr/include/boost/type_traits/is_nothrow_move_constructible.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/IceUtil/UUID.h:
+/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget:
 
@@ -15518,6 +15520,8 @@ src/chocachoca_autogen/JPJZV43UZ7/moc_abstract_graphic_viewer.cpp:
 /usr/include/Ice/BatchRequestInterceptor.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qprocessordetection.h:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcompilerdetection.h:
 
@@ -15843,6 +15847,8 @@ src/chocachoca_autogen/EWIEGA46WW/moc_genericworker.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h:
 
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/commonbehaviorI.h:
+
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcbormap.h:
@@ -15854,6 +15860,8 @@ src/chocachoca_autogen/EWIEGA46WW/moc_genericworker.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer_impl.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontinfo.h:
+
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/main.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h:
 
@@ -15947,8 +15955,6 @@ src/OmniRobot.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect:
 
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/config.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qproperty.h:
 
 /usr/include/c++/11/ios:
@@ -16029,9 +16035,7 @@ src/OmniRobot.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h:
 
-/usr/include/c++/11/bits/locale_facets.tcc:
-
-/home/robocomp/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h:
+/home/usuario/robocomp/components/grupo5-robotica2023/chocachoca/src/genericmonitor.h:
 
 /usr/include/Ice/Communicator.h:
 
@@ -16147,6 +16151,10 @@ src/OmniRobot.h:
 
 /usr/include/langinfo.h:
 
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/IceUtil/UUID.h:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayview.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCore:
@@ -16192,10 +16200,6 @@ src/OmniRobot.h:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QScopedPointer:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcborstreamwriter.h:
-
-/usr/include/x86_64-linux-gnu/sys/syscall.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qcollator.h:
 
 /usr/include/c++/11/bits/stl_tree.h:
 

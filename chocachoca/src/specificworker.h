@@ -31,35 +31,28 @@
 
 class SpecificWorker : public GenericWorker
 {
+
 Q_OBJECT
 public:
 	SpecificWorker(TuplePrx tprx, bool startup_check);
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
-
-
+    bool giro;
 
 public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
+    void lineaRecta(RoboCompLidar3D::TPoints &filtered_points);
 
 private:
 	bool startup_check_flag;
     AbstractGraphicViewer *viewer;
-    RoboCompLidar3D::TPoints filtered_points;
-
-    struct RobotSpeed
-    {
-        float adv=0, side=0, rot=0;
-    };
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
 
     // Estados
-    enum class Estado { IDLE, FOLLOW_WALL, STRAIGHT_LINE, SPIRAL };
+    enum class Estado {IDLE, FOLLOW_WALL, STRAIGHT_LINE, SPIRAL};
     Estado estado = Estado::IDLE;
-    std::tuple<Estado, RobotSpeed> chocachoca();
-
 };
 
 #endif
