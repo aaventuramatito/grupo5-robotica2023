@@ -86,19 +86,21 @@ void SpecificWorker::compute()
         draw_lidar(filtered_points, viewer);
 
         /// State machine
-        switch (estado) {
-            case Estado::IDLE:
+    /*    //switch (estado) {
+            //case Estado::IDLE:
+                lineaRecta(filtered_points);
+                //break;
+            //case Estado::FOLLOW_WALL:
+                seguirPared(filtered_points);
+                break;
+            //case Estado::STRAIGHT_LINE:
                 lineaRecta(filtered_points);
                 break;
-            case Estado::FOLLOW_WALL:
+            //case Estado::SPIRAL:
                 break;
-            case Estado::STRAIGHT_LINE:
-                lineaRecta(filtered_points);
-                //lineaRecta(const_cast<RoboCompLidar3D::TPoints &>(filtered_points));
-                break;
-            case Estado::SPIRAL:
-                break;
-        }
+        }*/
+
+        lineaRecta(filtered_points);
     }
     catch(const Ice::Exception &e)
     {
@@ -145,19 +147,47 @@ void SpecificWorker::lineaRecta(RoboCompLidar3D::TPoints &filtered_points)
     const float MIN_DISTANCE = 500;
     if(std::hypot(min_elem->x, min_elem->y) < MIN_DISTANCE)
     {
-        if(!giro){
-            omnirobot_proxy->setSpeedBase(0, 0, 1.5);
-            giro = true;
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<int> dist(0, 1);
+        int estadoAleatorio = dist(gen);
+        if (estadoAleatorio == 0)
+        {
+
+            omnirobot_proxy->setSpeedBase(0, 0, 1);
         }
-        else{
-            omnirobot_proxy->setSpeedBase(0, 0, -0.5);
-            giro = false;
+        else
+        {
+            seguirPared(filtered_points);
+            //estado = Estado::FOLLOW_WALL;
         }
     }
     else
     {
-        omnirobot_proxy->setSpeedBase(1000 / 1000.f, 0, 0);
+        omnirobot_proxy->setSpeedBase(1, 0, 0);
     }
+}
+
+void SpecificWorker::seguirPared(RoboCompLidar3D::TPoints &filtered_points)
+{
+    float K = 5.0;
+    int offset = filtered_points.size() / 2 - filtered_points.size() / 3;
+    auto min_elem = std::min_element(filtered_points.begin() + offset, filtered_points.end() - offset,
+                                     [](auto a, auto b) { return std::hypot(a.x, a.y) < std::hypot(b.x, b.y); });
+
+    const float MIN_DISTANCE = 500;
+
+    //if (std::hypot(min_elem->x, min_elem->y) < MIN_DISTANCE)
+    //{
+        float angulo_actual = std::atan2(min_elem->y, min_elem->x);
+        float velocidad_angular = K * angulo_actual;
+
+        omnirobot_proxy->setSpeedBase(1, 0, velocidad_angular);
+    //}
+ //   else
+ //   {
+ //       omnirobot_proxy->setSpeedBase(0, 0, 1);
+ //   }
 }
 
 /**************************************/

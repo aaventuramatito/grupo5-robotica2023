@@ -37,13 +37,13 @@ public:
 	SpecificWorker(TuplePrx tprx, bool startup_check);
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
-    bool giro;
 
 public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
     void lineaRecta(RoboCompLidar3D::TPoints &filtered_points);
+    void seguirPared(RoboCompLidar3D::TPoints &filtered_points);
 
 private:
 	bool startup_check_flag;
