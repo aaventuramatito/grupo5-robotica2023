@@ -44,6 +44,8 @@ public slots:
 	void initialize(int period);
     void lineaRecta(RoboCompLidar3D::TPoints &filtered_points);
     void seguirPared(RoboCompLidar3D::TPoints &filtered_points);
+    void perpendicular(RoboCompLidar3D::TPoints &filtered_points);
+
 
 private:
 	bool startup_check_flag;
@@ -51,7 +53,7 @@ private:
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
 
     // Estados
-    enum class Estado {IDLE, FOLLOW_WALL, STRAIGHT_LINE, SPIRAL};
+    enum class Estado {IDLE, FOLLOW_WALL, STRAIGHT_LINE, PERPENDICULAR};
     Estado estado = Estado::IDLE;
 };
 
