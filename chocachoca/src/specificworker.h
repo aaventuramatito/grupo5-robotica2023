@@ -37,15 +37,17 @@ public:
 	SpecificWorker(TuplePrx tprx, bool startup_check);
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
+    const float MIN_DISTANCE = 700;
+    float MIN_FOLLOW_WALL = 2100;
 
 public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
-    void lineaRecta(RoboCompLidar3D::TPoints &filtered_points);
-    void seguirPared(RoboCompLidar3D::TPoints &filtered_points);
-    void perpendicular(RoboCompLidar3D::TPoints &filtered_points);
-
+    void straight_line(RoboCompLidar3D::TPoints &filtered_points);
+    void follow_wall(RoboCompLidar3D::TPoints &filtered_points);
+    void spiral(RoboCompLidar3D::TPoints &filtered_points);
+    void turn(RoboCompLidar3D::TPoints &filtered_points);
 
 private:
 	bool startup_check_flag;
@@ -53,8 +55,8 @@ private:
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
 
     // Estados
-    enum class Estado {IDLE, FOLLOW_WALL, STRAIGHT_LINE, PERPENDICULAR};
-    Estado estado = Estado::IDLE;
+    enum class Estado {FOLLOW_WALL, STRAIGHT_LINE, SPIRAL, TURN};
+    Estado estado = Estado::SPIRAL;
 };
 
 #endif

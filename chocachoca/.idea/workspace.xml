@@ -21,9 +21,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50dc63cd-289d-482e-bada-87b3d05f9317" name="Changes" comment="">
+    <list default="true" id="646627fb-b465-44d2-ba0d-16286a5ba942" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/chocachoca.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/chocachoca.dir/compiler_depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/specificworker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/specificworker.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.h" afterDir="false" />
@@ -52,7 +51,7 @@
   "customColor": "",
   "associatedIndex": 8
 }]]></component>
-  <component name="ProjectId" id="2XG3KnzokVcXV5IGYFfyyrkCQLG" />
+  <component name="ProjectId" id="2XIHDlgOU0g8GwMTuAbIkUUoTbm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -71,7 +70,6 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -99,12 +97,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="50dc63cd-289d-482e-bada-87b3d05f9317" name="Changes" comment="" />
-      <created>1698241528280</created>
+      <changelist id="646627fb-b465-44d2-ba0d-16286a5ba942" name="Changes" comment="" />
+      <created>1698309557117</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1698241528280</updated>
-      <workItem from="1698241529775" duration="5550000" />
+      <updated>1698309557117</updated>
+      <workItem from="1698309558565" duration="13072000" />
     </task>
     <servers />
   </component>
