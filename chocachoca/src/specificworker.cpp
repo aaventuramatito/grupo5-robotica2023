@@ -103,6 +103,10 @@ void SpecificWorker::compute()
                 qInfo() << "TURN";
                 turn(filtered_points);
                 break;
+            case Estado::MIDLE:
+                qInfo() << "MIDLE";
+                midle(filtered_points);
+                break;
         }
     }
     catch(const Ice::Exception &e)
@@ -140,12 +144,10 @@ void SpecificWorker::follow_wall(RoboCompLidar3D::TPoints &filtered_points)
     float angulo_actual = std::atan2(min_elem->y, min_elem->x);
     float velocidad_angular = K * angulo_actual;
 
-    qInfo() << MIN_FOLLOW_WALL;
     if(std::hypot(min_elem->x, min_elem->y) < MIN_FOLLOW_WALL)
     {
         omnirobot_proxy->setSpeedBase(1, 0, velocidad_angular);
         i++;
-        qInfo() << i;
         if(i > 350)
         {
             MIN_FOLLOW_WALL -= 350;
@@ -171,16 +173,14 @@ void SpecificWorker::turn(RoboCompLidar3D::TPoints &filtered_points)
 
     if(std::hypot(min_elem->x, min_elem->y) < MIN_DISTANCE)
     {
-        qInfo() << i;
         if(i % 2 == 0)
         {
             omnirobot_proxy->setSpeedBase(0, 0, 1);
-            qInfo() << "IZQ";
+
         }
         else
         {
             omnirobot_proxy->setSpeedBase(0, 0, -1);
-            qInfo() << "DER";
         }
     }
     else{
@@ -211,9 +211,30 @@ void SpecificWorker::spiral(RoboCompLidar3D::TPoints &filtered_points)
         angularSpeed += 0.01;
     }
 
-    if(std::hypot(min_elem->x, min_elem->y) < MIN_FOLLOW_WALL)
+    if(std::hypot(min_elem->x, min_elem->y) < MIN_DISTANCE)
     {
-        estado = Estado::FOLLOW_WALL;
+        estado = Estado::MIDLE;
+    }
+}
+void SpecificWorker::midle(RoboCompLidar3D::TPoints &filtered_points)
+{
+    static int i = 0;
+    int offset = filtered_points.size() / 2 - filtered_points.size() / 5;
+    auto min_elem = std::min_element(filtered_points.begin() + offset, filtered_points.end() - offset,
+                                     [](auto a, auto b) { return std::hypot(a.x, a.y) < std::hypot(b.x, b.y);});
+
+    if(std::hypot(min_elem->x, min_elem->y) < MIN_DISTANCE)
+    {
+        omnirobot_proxy->setSpeedBase(0, 0, 1);
+    }
+    else
+    {
+        omnirobot_proxy->setSpeedBase(1, 0, 0);
+        i++;
+        if (i >= 25)
+        {
+            estado = Estado::FOLLOW_WALL;
+        }
     }
 }
 

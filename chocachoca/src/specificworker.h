@@ -40,6 +40,7 @@ public:
     const float MIN_DISTANCE = 700;
     float MIN_FOLLOW_WALL = 2100;
 
+
 public slots:
 	void compute();
 	int startup_check();
@@ -48,6 +49,7 @@ public slots:
     void follow_wall(RoboCompLidar3D::TPoints &filtered_points);
     void spiral(RoboCompLidar3D::TPoints &filtered_points);
     void turn(RoboCompLidar3D::TPoints &filtered_points);
+    void midle(RoboCompLidar3D::TPoints &filtered_points);
 
 private:
 	bool startup_check_flag;
@@ -55,7 +57,7 @@ private:
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
 
     // Estados
-    enum class Estado {FOLLOW_WALL, STRAIGHT_LINE, SPIRAL, TURN};
+    enum class Estado {FOLLOW_WALL, STRAIGHT_LINE, SPIRAL, TURN, MIDLE};
     Estado estado = Estado::SPIRAL;
 };
 
