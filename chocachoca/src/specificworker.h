@@ -37,9 +37,10 @@ public:
 	SpecificWorker(TuplePrx tprx, bool startup_check);
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
-    const float MIN_DISTANCE = 800;
+    const float MIN_DISTANCE = 700;
     float MIN_FOLLOW_WALL = 2100;
-
+    float forwardSpeed = 0.1;
+    float angularSpeed = 1.1;
 
 public slots:
 	void compute();
