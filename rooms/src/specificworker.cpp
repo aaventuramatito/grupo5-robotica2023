@@ -84,6 +84,9 @@ void SpecificWorker::compute()
         std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points),
                                     [](auto &p) { return p.z > 2000; });
         draw_lidar(filtered_points, viewer);
+
+
+
     }
     catch(const Ice::Exception &e)
     {
