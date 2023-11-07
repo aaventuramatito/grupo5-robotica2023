@@ -1,0 +1,96 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-0bf357856e8300fc384b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src-Debug-3eea5b2587d419bf0a60.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "rooms",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "ICES__home_robocomp_robocomp_components_grupo5-robotica2023_rooms_src::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ICES__home_robocomp_robocomp_components_grupo5-robotica2023_rooms_src-Debug-21de8eaa756aed3302c0.json",
+					"name" : "ICES__home_robocomp_robocomp_components_grupo5-robotica2023_rooms_src",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "rooms::@145eef247bfb46b6828c",
+					"jsonFile" : "target-rooms-Debug-1d067c8e3ed3d4d8fd30.json",
+					"name" : "rooms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "rooms_autogen::@145eef247bfb46b6828c",
+					"jsonFile" : "target-rooms_autogen-Debug-606c32091738fc58a58c.json",
+					"name" : "rooms_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/robocomp/robocomp/components/grupo5-robotica2023/rooms/cmake-build-debug",
+		"source" : "/home/robocomp/robocomp/components/grupo5-robotica2023/rooms"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

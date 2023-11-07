@@ -1,0 +1,15 @@
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/CMakeFiles/edit_cache.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/CMakeFiles/rebuild_cache.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/CMakeFiles/list_install_components.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/CMakeFiles/install.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/CMakeFiles/install/local.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/CMakeFiles/install/strip.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/ICES__home_usuario_robocomp_components_grupo5-robotica2023_rooms_src.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/rooms.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/edit_cache.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/rebuild_cache.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/list_install_components.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/install.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/install/local.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/install/strip.dir
+/home/usuario/robocomp/components/grupo5-robotica2023/rooms/src/CMakeFiles/rooms_autogen.dir
