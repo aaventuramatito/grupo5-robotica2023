@@ -44,9 +44,33 @@ public slots:
 	void initialize(int period);
 
 private:
-	bool startup_check_flag;
+    const float LOW_LOW = 300;
+    const float LOW_HIGH = 500;
+    const float MIDDLE_LOW = 600;
+    const float MIDDLE_HIGH = 800;
+    const float HIGH_LOW = 1000;
+    const float HIGH_HIGH = 1200;
+
+    bool startup_check_flag;
     AbstractGraphicViewer *viewer;
+
+    struct Lines
+    {
+        RoboCompLidar3D::TPoints low, middle, high;
+    };
+    struct Door
+    {
+        RoboCompLidar3D::TPoints left, right;
+    };
+
+    using Doors = std::vector<Door>;
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
+    void draw_doors(const Doors &doors, AbstractGraphicViewer *viewer);
+    Lines extract_lines(const RoboCompLidar3D::TPoints &points);
+
+    SpecificWorker::Lines extract_peaks(const Lines &peaks);
+
+    Doors get_doors(const Lines &lines);
 
 };
 

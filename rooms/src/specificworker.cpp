@@ -17,6 +17,9 @@
  *    along with RoboComp.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "specificworker.h"
+#include <cppitertools/sliding_window.hpp>
+#include <cppitertools/combinations.hpp>
+
 
 /**
 * \brief Default constructor
@@ -75,7 +78,7 @@ void SpecificWorker::initialize(int period)
 void SpecificWorker::compute()
 {
     try {
-        auto ldata = lidar3d_proxy->getLidarData("bpearl", 0, 2 * M_PI, 1);
+        auto ldata = lidar3d_proxy->getLidarData("helios", 0, 360, 1);
         const auto &points = ldata.points;
         if (points.empty()) return;
 
@@ -83,15 +86,72 @@ void SpecificWorker::compute()
         RoboCompLidar3D::TPoints filtered_points;
         std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points),
                                     [](auto &p) { return p.z > 2000; });
-        draw_lidar(filtered_points, viewer);
 
+        auto lines = extract_lines(filtered_points);
+        auto peaks = extract_peaks(lines);
+        auto doors = get_doors(peaks);
 
+        draw_lidar(lines.middle, viewer);
+        draw_doors(doors, viewer);
 
     }
     catch(const Ice::Exception &e)
     {
         std::cout << "Error reading from Camera" << e << std::endl;
     }
+}
+
+
+SpecificWorker::Lines SpecificWorker::extract_lines(const RoboCompLidar3D::TPoints &points)
+{
+    Lines lines;
+    for(const auto &p: points)
+    {
+        qInfo() << p.x << p.y << p.z;
+        if(p.z > LOW_LOW and p.z < LOW_HIGH)
+            lines.low.push_back(p);
+        if(p.z > MIDDLE_LOW and p.z < MIDDLE_HIGH)
+            lines.middle.push_back(p);
+        if(p.z > HIGH_LOW and p.z < HIGH_HIGH)
+            lines.high.push_back(p);
+    }
+    return lines;
+}
+
+SpecificWorker::Lines SpecificWorker::extract_peaks(const SpecificWorker::Lines &lines)
+{
+    Lines peaks;
+    const float THRES_PEAK = 1000;
+
+    for(const auto &both: iter::sliding_window(lines.low, 2))
+        if(fabs(both[1].r - both[0].r) > THRES_PEAK)
+            peaks.low.push_back(both[0]);
+
+    for(const auto &both: iter::sliding_window(lines.middle, 2))
+        if(fabs(both[1].r - both[0].r) > THRES_PEAK)
+            peaks.middle.push_back(both[0]);
+
+    for(const auto &both: iter::sliding_window(lines.high, 2))
+        if(fabs(both[1].r - both[0].r) > THRES_PEAK)
+            peaks.high.push_back(both[0]);
+
+    return peaks;
+}
+
+SpecificWorker::Doors SpecificWorker::get_doors(const SpecificWorker::Lines &peaks)
+{
+    auto dist = [](auto a, auto b)
+            { return std::hypot(a.x -b.x, a.y-b.y); };
+    Doors doors;
+    for (auto &&par:  peaks.middle | iter::combinations(2))
+    {
+        qInfo() << "punto" << dist(par[0], par[1]);
+        if(dist(par[0], par[1]) > 1300 and dist(par[0], par[1]) > 500)
+        {
+            doors.emplace_back(Door{par[0], par[1]});
+        }
+    }
+    return doors;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -119,6 +179,32 @@ void SpecificWorker::draw_lidar(const RoboCompLidar3D::TPoints &points, Abstract
         point->setPos(p.x, p.y);
         borrar.push_back(point);
     }
+}
+
+void SpecificWorker::draw_doors(const Doors &doors, AbstractGraphicViewer *viewer)
+{
+    static std::vector<QGraphicsItem*> borrar;
+    for(auto &b: borrar)
+    {
+        viewer->scene.removeItem(b);
+        delete b;
+    }
+
+    borrar.clear();
+
+    for(const auto &d: doors)
+    {
+        auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("green")), QBrush(QColor("green")));
+        point->setPos(d.left.x, d.left.y);
+        borrar.push_back(point);
+
+        point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("green")), QBrush(QColor("green")));
+        point->setPos(d.right.x, d.right.y);
+        borrar.push_back(point);
+        auto line = viewer->scene.addLine(d.left.x, d.left.y, d.right.x, d.right.y, QPen(QColor("green")));
+        borrar.push_back(line);
+    }
+
 }
 
 /**************************************/
