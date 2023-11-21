@@ -87,7 +87,7 @@ void SpecificWorker::compute()
         std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points),
                                     [](auto &p) { return p.z > 2000; });
 
-        auto lines = extract_lines(filtered_points);
+        SpecificWorker::Lines lines = extract_lines(ldata.points);
         auto peaks = extract_peaks(lines);
         auto doors = get_doors(peaks);
 
@@ -124,33 +124,70 @@ SpecificWorker::Lines SpecificWorker::extract_peaks(const SpecificWorker::Lines 
     const float THRES_PEAK = 1000;
 
     for(const auto &both: iter::sliding_window(lines.low, 2))
+    {
         if(fabs(both[1].r - both[0].r) > THRES_PEAK)
-            peaks.low.push_back(both[0]);
+        {
+            if(both[1].r < both[0].r){
+                peaks.low.push_back(both[0]);
+            }
 
+        }
+        else
+        {
+            peaks.low.push_back(both[1]);
+        }
+    }
     for(const auto &both: iter::sliding_window(lines.middle, 2))
+    {
         if(fabs(both[1].r - both[0].r) > THRES_PEAK)
+        {
             peaks.middle.push_back(both[0]);
-
+        }
+    }
     for(const auto &both: iter::sliding_window(lines.high, 2))
+    {
         if(fabs(both[1].r - both[0].r) > THRES_PEAK)
+        {
             peaks.high.push_back(both[0]);
-
+        }
+    }
     return peaks;
 }
 
 SpecificWorker::Doors SpecificWorker::get_doors(const SpecificWorker::Lines &peaks)
 {
     auto dist = [](auto a, auto b)
-            { return std::hypot(a.x -b.x, a.y-b.y); };
+    {
+        return std::hypot(a.x-b.x, a.y-b.y);
+    };
+
     Doors doors;
-    for (auto &&par:  peaks.middle | iter::combinations(2))
+    const float THRES_DOOR = 500;
+    auto near_door = [&doors, dist, THRES_DOOR](auto d)
+        {
+            for(auto &&old : doors)
+            {
+                if( dist(old.left, d.left) < THRES_DOOR or
+                    dist(old.right, d.right) < THRES_DOOR or
+                    dist(old.left, d.right) < THRES_DOOR or
+                    dist(old.right, d.left) < THRES_DOOR)
+                    return true;
+            }
+            return false;
+        };
+
+
+    for(auto &&par: peaks.middle | iter::combinations(2))
     {
         qInfo() << "punto" << dist(par[0], par[1]);
-        if(dist(par[0], par[1]) > 1300 and dist(par[0], par[1]) > 500)
+        if(dist(par[0], par[1]) < 1400 and dist(par[0], par[1]) > 500)
         {
-            doors.emplace_back(Door{par[0], par[1]});
+            auto door = Door{par[0], par[1]};
+            if( not near_door(door))
+                doors.emplace_back(door);
         }
     }
+    qInfo("--------");
     return doors;
 }
 
@@ -179,20 +216,24 @@ void SpecificWorker::draw_lidar(const RoboCompLidar3D::TPoints &points, Abstract
         point->setPos(p.x, p.y);
         borrar.push_back(point);
     }
+
+    if(linea != nullptr){
+        viewer->scene.removeItem(linea);
+        linea = nullptr;
+    }
 }
 
-void SpecificWorker::draw_doors(const Doors &doors, AbstractGraphicViewer *viewer)
+void SpecificWorker::draw_doors(const SpecificWorker::Doors doors, AbstractGraphicViewer *viewer)
 {
-    static std::vector<QGraphicsItem*> borrar;
-    for(auto &b: borrar)
+    static std::vector<QGraphicsItem *> borrar;
+    for (auto &b: borrar)
     {
         viewer->scene.removeItem(b);
         delete b;
     }
-
     borrar.clear();
 
-    for(const auto &d: doors)
+    for (const auto &d: doors)
     {
         auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("green")), QBrush(QColor("green")));
         point->setPos(d.left.x, d.left.y);
@@ -201,10 +242,15 @@ void SpecificWorker::draw_doors(const Doors &doors, AbstractGraphicViewer *viewe
         point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("green")), QBrush(QColor("green")));
         point->setPos(d.right.x, d.right.y);
         borrar.push_back(point);
-        auto line = viewer->scene.addLine(d.left.x, d.left.y, d.right.x, d.right.y, QPen(QColor("green")));
+
+        auto line = viewer->scene.addLine(d.left.x, d.left.y, d.right.x, d.right.y, QPen(QColor("green"), 50));
         borrar.push_back(line);
     }
-
+    if(linea != nullptr)
+    {
+        viewer->scene.removeItem(linea);
+        linea = nullptr;
+    }
 }
 
 /**************************************/

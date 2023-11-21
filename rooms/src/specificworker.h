@@ -54,21 +54,23 @@ private:
     bool startup_check_flag;
     AbstractGraphicViewer *viewer;
 
+    QGraphicsLineItem* linea = nullptr;
+
     struct Lines
     {
         RoboCompLidar3D::TPoints low, middle, high;
     };
     struct Door
     {
-        RoboCompLidar3D::TPoints left, right;
+        RoboCompLidar3D::TPoint left, right, middle;
     };
-
     using Doors = std::vector<Door>;
-    void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
-    void draw_doors(const Doors &doors, AbstractGraphicViewer *viewer);
-    Lines extract_lines(const RoboCompLidar3D::TPoints &points);
 
-    SpecificWorker::Lines extract_peaks(const Lines &peaks);
+    void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
+    void draw_doors(const SpecificWorker::Doors doors, AbstractGraphicViewer *viewer);
+
+    Lines extract_lines(const RoboCompLidar3D::TPoints &points);
+    SpecificWorker::Lines extract_peaks(const SpecificWorker::Lines &peaks);
 
     Doors get_doors(const Lines &lines);
 
