@@ -78,7 +78,7 @@ void SpecificWorker::initialize(int period)
 void SpecificWorker::compute()
 {
     try {
-        auto ldata = lidar3d_proxy->getLidarData("helios", 0, 360, 1);
+        RoboCompLidar3D::TData ldata = lidar3d_proxy->getLidarData("helios", 0, 360, 1);
         const auto &points = ldata.points;
         if (points.empty()) return;
 
@@ -86,15 +86,27 @@ void SpecificWorker::compute()
         RoboCompLidar3D::TPoints filtered_points;
         std::ranges::remove_copy_if(ldata.points, std::back_inserter(filtered_points),[](auto &p) { return p.z > 2000; });
 
-        auto lines = extract_lines(filtered_points);
-        auto peaks = extract_peaks(lines);
-        auto doors = get_doors(peaks);
-        auto final_doors = filter_doors(doors);
+        /// Doors
+        auto doors = doors_extractor(filtered_points);
 
-        draw_lidar(lines.middle, viewer);
-        draw_doors(std::get<0>(doors), viewer);
+        /// State machine
+        auto res = std::ranges::find(doors, door_target);
+        if(res != doors.end())
+        {
+            door_target = *res;
+        }
+        else
+        {
+            qInfo() << "No se ha detectado puerta";
+        }
 
-
+        /// Move the robot
+        switch (estado) {
+            case Estado::TURN:
+                qInfo() << "TURN";
+                turn(filtered_points);
+                break;
+        }
     }
     catch(const Ice::Exception &e)
     {
@@ -102,13 +114,28 @@ void SpecificWorker::compute()
     }
 }
 
+SpecificWorker::Doors
+SpecificWorker::doors_extractor(const RoboCompLidar3D::TPoints  &filtered_points)
+{
+    auto lines = extract_lines(filtered_points);
+    auto peaks = extract_peaks(lines);
+    auto doors = get_doors(peaks);
+    auto final_doors = filter_doors(doors);
+
+    draw_lidar(lines.middle, viewer);
+    draw_doors(final_doors, viewer);
+    //draw_doors(std::get<0>(doors), viewer, QColor("purple"));
+    //draw_doors(std::get<1>(doors), viewer, QColor("red"));
+    //draw_doors(std::get<2>(doors), viewer, QColor("magenta"));
+    return final_doors;
+}
 
 SpecificWorker::Lines SpecificWorker::extract_lines(const RoboCompLidar3D::TPoints &points)
 {
     Lines lines;
     for(const auto &p: points)
     {
-        qInfo() << p.x << p.y << p.z;
+        //qInfo() << p.x << p.y << p.z;
         if(p.z > LOW_LOW and p.z < LOW_HIGH)
             lines.low.push_back(p);
         if(p.z > MIDDLE_LOW and p.z < MIDDLE_HIGH)
@@ -128,7 +155,8 @@ SpecificWorker::Lines SpecificWorker::extract_peaks(const SpecificWorker::Lines 
     {
         if(fabs(both[1].r - both[0].r) > THRES_PEAK)
         {
-            if(both[0].r < both[1].r){
+            if(both[0].r < both[1].r)
+            {
                 peaks.low.push_back(both[0]);
             }
             else
@@ -175,47 +203,57 @@ SpecificWorker::get_doors(const SpecificWorker::Lines &peaks) {
 
     Doors doors_low, doors_middle, doors_high;
 
-    auto dist = [](auto a, auto b){
-        qInfo() << std::hypot(a.x-b.x, a.y-b.y);
+    auto dist = [](auto a, auto b)
+    {
+        //qInfo() << std::hypot(a.x-b.x, a.y-b.y);
         return std::hypot(a.x-b.x, a.y-b.y);
     };
 
     const float THRES_DOOR = 500;
 
-    auto near_door = [dist, THRES_DOOR](auto &doors, auto d){
+    auto near_door = [dist, THRES_DOOR](auto &doors, auto d)
+    {
         for(auto &&old: doors)
         {
-            qInfo() << dist(old.left, d.left) << dist(old.right, d.right) << dist(old.right, d.left) << dist(old.left, d.right);
-            if( dist(old.left, d.left) < THRES_DOOR or
-                dist(old.right, d.right) < THRES_DOOR or
-                dist(old.right, d.left) < THRES_DOOR or
-                dist(old.left, d.right) < THRES_DOOR)
+            //qInfo() << dist(old.left, d.left) << dist(old.right, d.right) << dist(old.right, d.left) << dist(old.left, d.right);
+            if( dist(old.left, d.left) < THRES_DOOR or dist(old.right, d.right) < THRES_DOOR or dist(old.right, d.left) < THRES_DOOR or dist(old.left, d.right) < THRES_DOOR)
+            {
                 return true;
+            }
         }
         return false;
     };
 
-    for(auto &par : peaks.low | iter::combinations(2)){
-        if(dist(par[0], par[1]) < 1400 && dist(par[0], par[1]) > 500){
+    for(auto &par : peaks.low | iter::combinations(2))
+    {
+        if(dist(par[0], par[1]) < 1400 && dist(par[0], par[1]) > 500)
+        {
             auto door = Door(par[0], par[1]);
-            if(!near_door(doors_low, door)) {
-                doors_low.emplace_back(Door{par[0], par[1]});
+            if(!near_door(doors_low, door))
+            {
+                doors_low.emplace_back(par[0], par[1]);
             }
         }
     }
-    for(auto &par : peaks.middle | iter::combinations(2)){
-        if(dist(par[0], par[1]) < 1400 && dist(par[0], par[1]) > 500){
+    for(auto &par : peaks.middle | iter::combinations(2))
+    {
+        if(dist(par[0], par[1]) < 1400 && dist(par[0], par[1]) > 500)
+        {
             auto door = Door(par[0], par[1]);
-            if(!near_door(doors_middle, door)) {
-                doors_middle.emplace_back(Door{par[0], par[1]});
+            if(!near_door(doors_middle, door))
+            {
+                doors_middle.emplace_back(par[0], par[1]);
             }
         }
     }
-    for(auto &par : peaks.high | iter::combinations(2)){
-        if(dist(par[0], par[1]) < 1400 && dist(par[0], par[1]) > 500){
+    for(auto &par : peaks.high | iter::combinations(2))
+    {
+        if(dist(par[0], par[1]) < 1400 && dist(par[0], par[1]) > 500)
+        {
             auto door = Door(par[0], par[1]);
-            if(!near_door(doors_high, door)) {
-                doors_high.emplace_back(Door{par[0], par[1]});
+            if(!near_door(doors_high, door))
+            {
+                doors_high.emplace_back(par[0], par[1]);
             }
         }
     }
@@ -229,18 +267,42 @@ SpecificWorker::filter_doors(const tuple<SpecificWorker::Doors, SpecificWorker::
     Doors final_doors;
 
     auto &[dlow, dmiddle, dhigh] = doors;
-    for(const auto &dl: dlow)
+    for(auto &dl: dlow)
     {
-        bool equal_middle = std::ranges::find( dmiddle, dl ) != dmiddle.end();
-        bool equal_high = std::ranges::find( dhigh, dl ) != dhigh.end();
+        bool equal_middle = std::ranges::find(dmiddle, dl) != dmiddle.end();
+        bool equal_high = std::ranges::find(dhigh, dl) != dhigh.end();
 
         if (equal_middle and equal_high)
         {
-            final_doors.emplace_back(dl);
-       }
+            final_doors.push_back(dl);
+        }
     }
-
     return final_doors;
+}
+
+void SpecificWorker::turn(RoboCompLidar3D::TPoints &filtered_points)
+{
+    int offset = filtered_points.size() / 2 - filtered_points.size() / 5;
+    auto min_elem = std::min_element(filtered_points.begin() + offset, filtered_points.end() - offset,
+                                     [](auto a, auto b) { return std::hypot(a.x, a.y) < std::hypot(b.x, b.y); });
+
+    if (min_elem != filtered_points.end())
+    {
+        double angle_to_min_elem = std::atan2(min_elem->y, min_elem->x) * (180.0 / M_PI);
+
+        if (angle_to_min_elem > 5.0)
+        {
+            omnirobot_proxy->setSpeedBase(0, 0, 1);
+        }
+        else
+        {
+            omnirobot_proxy->setSpeedBase(2, 0, 0);
+        }
+    }
+    else
+    {
+        omnirobot_proxy->setSpeedBase(0, 0, 0);
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -254,43 +316,37 @@ int SpecificWorker::startup_check()
 void SpecificWorker::draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer)
 {
     static std::vector<QGraphicsItem*> borrar;
-    for(auto &b: borrar)
-    {
+    for(auto &b : borrar) {
         viewer->scene.removeItem(b);
         delete b;
     }
-
     borrar.clear();
 
-    for(const auto &p: points)
+    for(const auto &p : points)
     {
-        auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("blue")), QBrush(QColor("blue")));
+        auto point = viewer->scene.addRect(-50,-50,100, 100, QPen(QColor("Blue")), QBrush(QColor("Blue")));
         point->setPos(p.x, p.y);
         borrar.push_back(point);
     }
 }
 
-void SpecificWorker::draw_doors(const Doors &doors, AbstractGraphicViewer *viewer)
+void SpecificWorker::draw_doors(const Doors &doors, AbstractGraphicViewer *viewer, QColor color)
 {
     static std::vector<QGraphicsItem *> borrar;
-    for (auto &b: borrar)
-    {
+    for (auto &b: borrar) {
         viewer->scene.removeItem(b);
         delete b;
     }
     borrar.clear();
 
-    for (const auto &d: doors)
-    {
-        auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("green")), QBrush(QColor("green")));
+    for (const auto &d: doors) {
+        auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(color), QBrush(color));
         point->setPos(d.left.x, d.left.y);
         borrar.push_back(point);
-
-        point = viewer->scene.addRect(-50, -50, 100, 100, QPen(QColor("green")), QBrush(QColor("green")));
+        point = viewer->scene.addRect(-50, -50, 100, 100, QPen(color), QBrush(color));
         point->setPos(d.right.x, d.right.y);
         borrar.push_back(point);
-
-        auto line = viewer->scene.addLine(d.left.x, d.left.y, d.right.x, d.right.y, QPen(QColor("green"), 50));
+        auto line = viewer->scene.addLine(d.left.x, d.left.y, d.right.x, d.right.y, QPen(color, 50));
         borrar.push_back(line);
     }
 }

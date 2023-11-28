@@ -42,6 +42,7 @@ public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
+    void turn(RoboCompLidar3D::TPoints &filtered_points);
 
 private:
     const float LOW_LOW = 300;
@@ -62,29 +63,44 @@ private:
     {
         const float THRESHOLD = 500;
         RoboCompLidar3D::TPoint left, right, middle;
-    public:
-        Door(RoboCompLidar3D::TPoint left_, RoboCompLidar3D::TPoint right_): left(left_), right(right_)
+        Door(){ left = right = middle = RoboCompLidar3D::TPoint(0,0,0);};
+        Door(const RoboCompLidar3D::TPoint &left_,
+             const RoboCompLidar3D::TPoint &right_) : left(left_), right(right_)
         {
             middle.x = (left.x + right.x)/2;
             middle.y = (left.y + right.y)/2;
         };
-        bool operator == (const Door &d) const
+        bool operator==(const Door &d) const
         {
             return std::hypot(d.middle.x - middle.x, d.middle.y - middle.y) < THRESHOLD;
-
+        };
+        Door& operator=(const Door &d)
+        {
+            left = d.left;
+            right = d.right;
+            middle = d.middle;
+            return *this;
         };
     };
+
     using Doors = std::vector<Door>;
 
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
-    void draw_doors(const Doors &doors, AbstractGraphicViewer *viewer);
+    void draw_doors(const Doors &doors, AbstractGraphicViewer *viewer, QColor = QColor("green"));
 
     Lines extract_lines(const RoboCompLidar3D::TPoints &points);
     SpecificWorker::Lines extract_peaks(const Lines &peaks);
 
-    std::tuple<SpecificWorker::Doors, SpecificWorker::Doors, SpecificWorker::Doors> get_doors(const Lines &lines);
+    std::tuple<Doors, Doors, Doors>
+    get_doors(const Lines &lines);
 
-    Doors filter_doors(const std::tuple<SpecificWorker::Doors, SpecificWorker::Doors, SpecificWorker::Doors> &doors);
+    Doors filter_doors(const std::tuple<Doors, Doors, Doors> &doors);
+    Doors doors_extractor(const RoboCompLidar3D::TPoints &filtered_points);
+
+    // Estados
+    Door door_target;
+    enum class Estado {TURN};
+    Estado estado = Estado::TURN;
 
 };
 
