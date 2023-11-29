@@ -42,18 +42,20 @@ public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
-    void turn(RoboCompLidar3D::TPoints &filtered_points);
 
 private:
-    const float LOW_LOW = 300;
-    const float LOW_HIGH = 500;
-    const float MIDDLE_LOW = 600;
-    const float MIDDLE_HIGH = 800;
-    const float HIGH_LOW = 1800;
+    const float LOW_LOW = 0;
+    const float LOW_HIGH = 400;
+    const float MIDDLE_LOW = 800;
+    const float MIDDLE_HIGH = 1200;
+    const float HIGH_LOW = 1600;
     const float HIGH_HIGH = 2000;
 
     bool startup_check_flag;
     AbstractGraphicViewer *viewer;
+
+    const float MAX_ADV_SPEED = 700;
+    const float DOOR_PROXIMITY_THRESHOLD = 1200;
 
     struct Lines
     {
@@ -61,8 +63,8 @@ private:
     };
     struct Door
     {
-        const float THRESHOLD = 500;
         RoboCompLidar3D::TPoint left, right, middle;
+        const float THRESHOLD = 500; //door equality
         Door(){ left = right = middle = RoboCompLidar3D::TPoint(0,0,0);};
         Door(const RoboCompLidar3D::TPoint &left_,
              const RoboCompLidar3D::TPoint &right_) : left(left_), right(right_)
@@ -81,6 +83,16 @@ private:
             middle = d.middle;
             return *this;
         };
+        void print()
+        {
+            qInfo() << "Door:";
+            qInfo() << "    left:" << left.x << left.y;
+            qInfo() << "    right:" << right.x << right.y;
+        };
+        float dist_to_robot() const
+        { return std::hypot(middle.x, middle.y);}
+        float angle_to_robot() const
+        { return atan2(middle.x, middle.y);}
     };
 
     using Doors = std::vector<Door>;
@@ -99,8 +111,12 @@ private:
 
     // Estados
     Door door_target;
-    enum class Estado {TURN};
-    Estado estado = Estado::TURN;
+    enum class States{ IDLE, SEARCH_DOOR, GOTO_DOOR, GO_THROUGH};
+    States state = States::SEARCH_DOOR;
+
+    void move_robot(float side, float adv, float rot);
+    float break_adv(float dist_to_target);
+    float break_rot(float rot);
 
 };
 
