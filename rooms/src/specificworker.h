@@ -28,6 +28,7 @@
 #include <genericworker.h>
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
 #include <ranges>
+#include <tuple>
 
 class SpecificWorker : public GenericWorker
 {
@@ -63,6 +64,10 @@ private:
     };
     struct Door
     {
+        struct Point{
+            double x;
+            double y;
+        };
         RoboCompLidar3D::TPoint left, right, middle;
         const float THRESHOLD = 500; //door equality
         Door(){ left = right = middle = RoboCompLidar3D::TPoint(0,0,0);};
@@ -93,6 +98,40 @@ private:
         { return std::hypot(middle.x, middle.y);}
         float angle_to_robot() const
         { return atan2(middle.x, middle.y);}
+        Point perpendicular_point()const
+        {
+            // Calculate the direction vector from p1 to p2 and rotate it by 90 degrees
+            Point d_perp;
+            d_perp.x = -(left.y - right.y);
+            d_perp.y = left.x - right.x;
+
+            // Normalize the perpendicular vector to get the unit vector
+            double magnitude = std::sqrt(std::pow(d_perp.x, 2) + std::pow(d_perp.y, 2));
+            Point u_perp;
+            u_perp.x = d_perp.x / magnitude;
+            u_perp.y = d_perp.y / magnitude;
+
+            // Calculate the points P1 and P2 at a distance of 1 meter from M along the perpendicular
+            Point a, b;
+            Point M{middle.x, middle.y};
+            a.x = M.x + u_perp.x * 1000; // 1 meter in the direction of u_perp
+            a.y = M.y + u_perp.y * 1000;
+            b.x = M.x - u_perp.x * 1000; // 1 meter in the opposite direction of u_perp
+            b.y = M.y - u_perp.y * 1000;
+            float len_a = std::hypot(a.x, a.y);
+            float len_b = std::hypot(b.x, b.y);
+            return len_a < len_b ? a : b;
+        }
+        float perp_dist_to_robot() const
+        {
+            auto p = perpendicular_point();
+            return std::hypot(p.x, p.y);
+        }
+        float perp_angle_to_robot() const
+        {
+            auto p = perpendicular_point();
+            return atan2(p.x, p.y);
+        }
     };
 
     using Doors = std::vector<Door>;

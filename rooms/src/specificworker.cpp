@@ -91,74 +91,53 @@ void SpecificWorker::compute()
 
         /// State machine
         switch (state) {
-            case States::IDLE:
-            {
+            case States::IDLE: {
                 move_robot(0, 0, 0);
                 break;
             }
-            case States::SEARCH_DOOR:
-            {
+            case States::SEARCH_DOOR: {
                 //qInfo() << "SEARCH_DOOR";
-                if (not doors.empty())
-                {
+                if (not doors.empty()) {
                     door_target = doors[0];
                     move_robot(0, 0, 0);
                     state = States::GOTO_DOOR;
                     qInfo() << "First found";
                     door_target.print();
                 } else
-                {
-                    move_robot(0, 0, 0.5);
-                }
+                    move_robot(0, 0, 0.3);
                 break;
             }
-            case States::GOTO_DOOR:
-            {
+            case States::GOTO_DOOR: {
                 //Info() << "GOTO_DOOR";
-                if (door_target.dist_to_robot() < DOOR_PROXIMITY_THRESHOLD)
-                {
-                    qInfo() << "distance " << door_target.dist_to_robot();
+                //qInfo() << "distance " << door_target.dist_to_robot();
+                if (door_target.dist_to_robot() < DOOR_PROXIMITY_THRESHOLD) {
                     move_robot(0, 0, 0);
                     qInfo() << "GOTO_DOOR Target achieved";
-                    //state = States::IDLE;
                     state = States::GO_THROUGH;
                 }
                 // match door_target against new perceived doors
                 auto res = std::ranges::find(doors, door_target);
-                if (res != doors.end())
-                {
+                if (res != doors.end()) {
                     door_target = *res;
-                    float rot = -0.5 * door_target.angle_to_robot();
-                    float adv = MAX_ADV_SPEED * break_adv(door_target.dist_to_robot()) * break_rot(door_target.angle_to_robot()) / 1000.f;
+                    float rot = -0.5 * door_target.perp_angle_to_robot();
+                    float adv = MAX_ADV_SPEED * break_adv(door_target.perp_dist_to_robot()) *
+                                break_rot(door_target.perp_angle_to_robot()) / 1000.f;
                     move_robot(0, adv, rot);
-                }
-                else
-                {
+                } else {
                     move_robot(0, 0, 0);
                     state = States::SEARCH_DOOR;
                     qInfo() << "GOTO_DOOR Door lost, searching";
                 }
                 break;
             }
-            case States::GO_THROUGH:
-            {
-                // Implementa el código para hacer que el robot avance y cruce la puerta
-                move_robot(2, 0, 0);  // Ejemplo: avanzar hacia adelante
-                static int i = 0;
-
-                // Verifica si el robot ha cruzado la puerta (puedes usar condiciones similares a las de GOTO_DOOR)
-                if (i < 50)
-                {
-                    state = States::SEARCH_DOOR;  // Vuelve al estado de búsqueda para encontrar otra puerta
-                }
-                qInfo() << i;
-                i++;
+            case States::GO_THROUGH: {
+                move_robot(0, 0, 0);
                 break;
             }
         }
-    }
-        /// Move the robot
 
+        /// Move the robot
+    }
     catch(const Ice::Exception &e)
     {
         std::cout << "Error reading from Camera" << e << std::endl;
@@ -352,7 +331,9 @@ SpecificWorker::filter_doors(const tuple<SpecificWorker::Doors, SpecificWorker::
         bool equal_high = std::ranges::find(dhigh, dl) != dhigh.end();
 
         if (equal_middle and equal_high)
+        {
             final_doors.push_back(dl);
+        }
     }
     //return final_doors;
 }
