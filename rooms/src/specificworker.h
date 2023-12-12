@@ -16,12 +16,6 @@
  *    You should have received a copy of the GNU General Public License
  *    along with RoboComp.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-/**
-	\brief
-	@author authorname
-*/
-
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 
@@ -29,134 +23,61 @@
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
 #include <ranges>
 #include <tuple>
+#include "door_detector.h"
+#include <Eigen/Dense>
 
 class SpecificWorker : public GenericWorker
 {
-
 Q_OBJECT
 public:
-	SpecificWorker(TuplePrx tprx, bool startup_check);
-	~SpecificWorker();
-	bool setParams(RoboCompCommonBehavior::ParameterList params);
+    SpecificWorker(TuplePrx tprx, bool startup_check);
+    ~SpecificWorker();
+    bool setParams(RoboCompCommonBehavior::ParameterList params);
 
 public slots:
-	void compute();
-	int startup_check();
-	void initialize(int period);
+    void compute();
+    int startup_check();
+    void initialize(int period);
 
 private:
-    const float LOW_LOW = 0;
-    const float LOW_HIGH = 400;
-    const float MIDDLE_LOW = 800;
-    const float MIDDLE_HIGH = 1200;
-    const float HIGH_LOW = 1600;
-    const float HIGH_HIGH = 2000;
-
     bool startup_check_flag;
     AbstractGraphicViewer *viewer;
 
-    const float MAX_ADV_SPEED = 700;
-    const float DOOR_PROXIMITY_THRESHOLD = 1200;
-
-    struct Lines
+    struct Constants
     {
-        RoboCompLidar3D::TPoints low, middle, high;
+        std::string lidar_name = "helios";
+        const float MAX_ADV_SPEED = 700;
+        const float DOOR_PROXIMITY_THRESHOLD = 200;
+        std::vector<std::pair<float, float>> ranges_list = {{1000, 2000}};
     };
-    struct Door
-    {
-        struct Point{
-            double x;
-            double y;
-        };
-        RoboCompLidar3D::TPoint left, right, middle;
-        const float THRESHOLD = 500; //door equality
-        Door(){ left = right = middle = RoboCompLidar3D::TPoint(0,0,0);};
-        Door(const RoboCompLidar3D::TPoint &left_,
-             const RoboCompLidar3D::TPoint &right_) : left(left_), right(right_)
-        {
-            middle.x = (left.x + right.x)/2;
-            middle.y = (left.y + right.y)/2;
-        };
-        bool operator==(const Door &d) const
-        {
-            return std::hypot(d.middle.x - middle.x, d.middle.y - middle.y) < THRESHOLD;
-        };
-        Door& operator=(const Door &d)
-        {
-            left = d.left;
-            right = d.right;
-            middle = d.middle;
-            return *this;
-        };
-        void print()
-        {
-            qInfo() << "Door:";
-            qInfo() << "    left:" << left.x << left.y;
-            qInfo() << "    right:" << right.x << right.y;
-        };
-        float dist_to_robot() const
-        { return std::hypot(middle.x, middle.y);}
-        float angle_to_robot() const
-        { return atan2(middle.x, middle.y);}
-        Point perpendicular_point()const
-        {
-            // Calculate the direction vector from p1 to p2 and rotate it by 90 degrees
-            Point d_perp;
-            d_perp.x = -(left.y - right.y);
-            d_perp.y = left.x - right.x;
+    Constants consts;
 
-            // Normalize the perpendicular vector to get the unit vector
-            double magnitude = std::sqrt(std::pow(d_perp.x, 2) + std::pow(d_perp.y, 2));
-            Point u_perp;
-            u_perp.x = d_perp.x / magnitude;
-            u_perp.y = d_perp.y / magnitude;
-
-            // Calculate the points P1 and P2 at a distance of 1 meter from M along the perpendicular
-            Point a, b;
-            Point M{middle.x, middle.y};
-            a.x = M.x + u_perp.x * 1000; // 1 meter in the direction of u_perp
-            a.y = M.y + u_perp.y * 1000;
-            b.x = M.x - u_perp.x * 1000; // 1 meter in the opposite direction of u_perp
-            b.y = M.y - u_perp.y * 1000;
-            float len_a = std::hypot(a.x, a.y);
-            float len_b = std::hypot(b.x, b.y);
-            return len_a < len_b ? a : b;
-        }
-        float perp_dist_to_robot() const
-        {
-            auto p = perpendicular_point();
-            return std::hypot(p.x, p.y);
-        }
-        float perp_angle_to_robot() const
-        {
-            auto p = perpendicular_point();
-            return atan2(p.x, p.y);
-        }
-    };
-
+    using Door = DoorDetector::Door;
     using Doors = std::vector<Door>;
+    using Line = std::vector<Eigen::Vector2f>;
+    using Lines = std::vector<Line>;
 
+    // Doors
+    DoorDetector door_detector;
+    std::vector<Line> extract_lines(const RoboCompLidar3D::TPoints &points, const vector<std::pair<float, float>> &ranges);
+    void match_door_target(const Doors &doors, const Door &target);
+
+    // Draw
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
-    void draw_doors(const Doors &doors, AbstractGraphicViewer *viewer, QColor = QColor("green"));
+    void draw_target_door(const Door &target, AbstractGraphicViewer *viewer, QColor color="magenta", QColor color_far="orange");
+    void draw_lines(const Lines &lines, AbstractGraphicViewer *pViewer);
 
-    Lines extract_lines(const RoboCompLidar3D::TPoints &points);
-    SpecificWorker::Lines extract_peaks(const Lines &peaks);
-
-    std::tuple<Doors, Doors, Doors>
-    get_doors(const Lines &lines);
-
-    Doors filter_doors(const std::tuple<Doors, Doors, Doors> &doors);
-    Doors doors_extractor(const RoboCompLidar3D::TPoints &filtered_points);
-
-    // Estados
+    // states
     Door door_target;
-    enum class States{ IDLE, SEARCH_DOOR, GOTO_DOOR, GO_THROUGH};
+    enum class States{ IDLE, SEARCH_DOOR, GOTO_DOOR, GO_THROUGH, ALIGN};
     States state = States::SEARCH_DOOR;
+    void state_machine(const Doors &doors);
 
+    // robot
     void move_robot(float side, float adv, float rot);
     float break_adv(float dist_to_target);
     float break_rot(float rot);
 
-};
 
+};
 #endif

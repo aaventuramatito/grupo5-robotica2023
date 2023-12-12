@@ -323,6 +323,30 @@ commonbehaviorI.cpp.s:
 	cd /home/usuario/robocomp/components/grupo5-robotica2023/rooms && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/rooms.dir/build.make src/CMakeFiles/rooms.dir/commonbehaviorI.cpp.s
 .PHONY : commonbehaviorI.cpp.s
 
+door_detector.o: door_detector.cpp.o
+.PHONY : door_detector.o
+
+# target to build an object file
+door_detector.cpp.o:
+	cd /home/usuario/robocomp/components/grupo5-robotica2023/rooms && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/rooms.dir/build.make src/CMakeFiles/rooms.dir/door_detector.cpp.o
+.PHONY : door_detector.cpp.o
+
+door_detector.i: door_detector.cpp.i
+.PHONY : door_detector.i
+
+# target to preprocess a source file
+door_detector.cpp.i:
+	cd /home/usuario/robocomp/components/grupo5-robotica2023/rooms && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/rooms.dir/build.make src/CMakeFiles/rooms.dir/door_detector.cpp.i
+.PHONY : door_detector.cpp.i
+
+door_detector.s: door_detector.cpp.s
+.PHONY : door_detector.s
+
+# target to generate assembly for a file
+door_detector.cpp.s:
+	cd /home/usuario/robocomp/components/grupo5-robotica2023/rooms && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/rooms.dir/build.make src/CMakeFiles/rooms.dir/door_detector.cpp.s
+.PHONY : door_detector.cpp.s
+
 genericmonitor.o: genericmonitor.cpp.o
 .PHONY : genericmonitor.o
 
@@ -593,6 +617,9 @@ help:
 	@echo "... commonbehaviorI.o"
 	@echo "... commonbehaviorI.i"
 	@echo "... commonbehaviorI.s"
+	@echo "... door_detector.o"
+	@echo "... door_detector.i"
+	@echo "... door_detector.s"
 	@echo "... genericmonitor.o"
 	@echo "... genericmonitor.i"
 	@echo "... genericmonitor.s"

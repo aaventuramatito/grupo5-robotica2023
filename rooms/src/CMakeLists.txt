@@ -44,7 +44,7 @@ QT_WRAP_UI( UI_HEADERS mainUI.ui )
 add_definitions(-g  -fmax-errors=1 -fno-char8_t)
 
 # Specify construction and link process
-ADD_EXECUTABLE( rooms ${SOURCES} ${MOC_SOURCES} ${RC_SOURCES} ${UI_HEADERS} )
+ADD_EXECUTABLE( rooms ${SOURCES} ${MOC_SOURCES} ${RC_SOURCES} ${UI_HEADERS} door_detector.cpp )
 TARGET_LINK_LIBRARIES( rooms ${LIBS} ${STATIC_LIBS} ${SPECIFIC_LIBS} ${QT_LIBRARIES} ${Ice_LIBRARIES})
 SET_TARGET_PROPERTIES(rooms
         PROPERTIES
