@@ -132,48 +132,37 @@ void SpecificWorker::state_machine(const Doors &doors)
         }
         case States::ALIGN:
         {
-            qInfo() << "Align";
-            if( fabs(door_target.angle_to_robot()) < 0.01)
+            if( fabs(door_target.angle_to_robot()) < 0.02)
             {
                 move_robot(0,0,0);
                 state = States::GO_THROUGH;
                 return;
             }
             //qInfo() << door_target.angle_to_robot();
-            float rot = -0.4 * door_target.angle_to_robot();
+            float rot = -0.5 * door_target.angle_to_robot();
             move_robot(0,0,rot);
             break;
         }
-//        case States::GO_THROUGH:
-//        {
-//            qInfo() << "go_through";
-//            move_robot(0,1,0);
-//            state = States::SEARCH_DOOR;
-//            break;
-//        }
         case States::GO_THROUGH:
         {
-            qInfo() << "go_through";
+            auto now = std::chrono::steady_clock::now();
 
-            auto inicio = std::chrono::high_resolution_clock::now();
-            int duracionTotal = 10;
+            // Check if the state just started
+            if (!goThroughStartTime.time_since_epoch().count())
+                goThroughStartTime = now;
 
-            while (true) {
-                // Ejecutar la línea de código durante 10 segundos
-                move_robot(0, 1, 0);
-
-                auto ahora = std::chrono::high_resolution_clock::now();
-                auto duracionTranscurrida = std::chrono::duration_cast<std::chrono::seconds>(ahora - inicio).count();
-
-                if (duracionTranscurrida >= duracionTotal) {
-                    break;
-                }
-
-                std::this_thread::sleep_for(std::chrono::seconds(1));
+            // Check if 5000 ms have passed
+            if (std::chrono::duration_cast<std::chrono::milliseconds>(now - goThroughStartTime) < std::chrono::milliseconds(10000))
+            {
+                // Less than 5 seconds have passed, continue moving the robot
+                move_robot(0, 1.0, 0);
             }
-
-            // Después de 10 segundos, pasar al estado SEARCH_DOOR
-            state = States::SEARCH_DOOR;
+            else
+            {
+                // 5 seconds have passed, reset the timer and change state
+                goThroughStartTime = std::chrono::steady_clock::time_point();  // Reset timer
+                state = States::SEARCH_DOOR; // Transition to the next state
+            }
             break;
         }
     }
@@ -193,6 +182,7 @@ void SpecificWorker::match_door_target(const Doors &doors, const Door &target)
         qInfo() << "GOTO_DOOR Door lost, searching";
     }
 }
+
 SpecificWorker::Lines SpecificWorker::extract_lines(const RoboCompLidar3D::TPoints &points, const std::vector<std::pair<float, float>> &ranges)
 {
     Lines lines(ranges.size());

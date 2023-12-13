@@ -2,6 +2,7 @@
 SET ( SOURCES
   specificworker.cpp
   specificmonitor.cpp
+  graph.cpp
     /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp
 
 )
