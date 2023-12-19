@@ -43,6 +43,7 @@ public slots:
 private:
     bool startup_check_flag;
     AbstractGraphicViewer *viewer;
+    std::chrono::steady_clock::time_point InicioTimer;
 
     struct Constants
     {
@@ -65,24 +66,22 @@ private:
 
     // Draw
     void draw_lidar(const RoboCompLidar3D::TPoints &points, AbstractGraphicViewer *viewer);
-    void draw_target_door(const Door &target, AbstractGraphicViewer *viewer, QColor color="magenta", QColor color_far="orange");
     void draw_lines(const Lines &lines, AbstractGraphicViewer *pViewer);
+    void draw_target_door(const Door &target, AbstractGraphicViewer *viewer, QColor color="magenta", QColor color_far="orange");
 
-    // states
     Door door_target;
-    enum class States{ IDLE, SEARCH_DOOR, GOTO_DOOR, GO_THROUGH, ALIGN};
-    States state = States::SEARCH_DOOR;
+
+    // Estados
+    enum class Estados{ IDLE, SEARCH_DOOR, GOTO_DOOR, GO_THROUGH, ALIGN};
+    Estados estado = Estados::SEARCH_DOOR;
     void state_machine(const Doors &doors);
 
-    // robot
+    // Robot
     void move_robot(float side, float adv, float rot);
     float break_adv(float dist_to_target);
     float break_rot(float rot);
 
     Graph graph;
-
-    // In your SpecificWorker class
-    std::chrono::steady_clock::time_point goThroughStartTime;
 
 };
 #endif

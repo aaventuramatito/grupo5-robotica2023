@@ -1,4 +1,3 @@
-
 #ifndef ROOMS_GRAPH_H
 #define ROOMS_GRAPH_H
 #include <vector>
@@ -18,6 +17,5 @@ public:
     int add_edge (int n1, int n2);
     void print();
 };
-
 
 #endif //ROOMS_GRAPH_H

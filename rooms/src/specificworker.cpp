@@ -21,7 +21,6 @@
 #include <cppitertools/combinations.hpp>
 #include <cppitertools/enumerate.hpp>
 
-
 /**
 * \brief Default constructor
 */
@@ -50,9 +49,8 @@ void SpecificWorker::initialize(int period)
     {
         this->startup_check();
     }
-    else  // normal execution
+    else
     {
-        // Drawing initializations
         viewer = new AbstractGraphicViewer(this, QRectF(-5000,-5000,10000,10000));
         viewer->add_robot(460,480,0,100,QColor("Blue"));
         viewer->show();
@@ -69,59 +67,61 @@ void SpecificWorker::compute()
     const auto &points = ldata.points;
     if (points.empty()) return;
 
-    // doors
+    // Doors
     auto lines = extract_lines(points, consts.ranges_list);
     auto doors = door_detector.detect(lines, &viewer->scene);
 
-    // match door_target against new perceived doors. Sets door_target or changes state to SEARCH_DOOR
     match_door_target(doors, door_target);
 
-    // state machine
+    // Estados
     state_machine(doors);
 
-    // draw
-    //draw_lidar(points, viewer);
     draw_lines(lines, viewer);
     draw_target_door(door_target, viewer);
 
 }
+
 ///////////////////////////////////////////////////////////////////////////////
 void SpecificWorker::state_machine(const Doors &doors)
 {
-    switch (state)
+    switch (estado)
     {
-        case States::IDLE:
+        case Estados::IDLE:
         {
-            qInfo() << "Idle";
             move_robot(0,0,0);
             break;
         }
-        case States::SEARCH_DOOR:
+        case Estados::SEARCH_DOOR:
         {
-            qInfo() << "SEARCH_DOOR";
-            if(not doors.empty())
+            if(!doors.empty())
             {
-                door_target = doors[0];
+                Door closest_door = doors[0];
+                for (const auto& door : doors)
+                {
+                    if (fabs(door.angle_to_robot()) < fabs(closest_door.angle_to_robot()))
+                    {
+                        closest_door = door;
+                    }
+                }
+                door_target = closest_door;
                 move_robot(0,0,0);
-                state = States::GOTO_DOOR;
-                qInfo() << "First found";
+                estado = Estados::GOTO_DOOR;
+                qInfo() << "Puerta con el ángulo más pequeño encontrado";
                 door_target.print();
             }
             else
                 move_robot(0,0,0.3);
             break;
         }
-        case States::GOTO_DOOR:
+        case Estados::GOTO_DOOR:
         {
-            qInfo() << "GOTO_DOOR";
-            //qInfo() << "distance " << door_target.dist_to_robot();
             if(door_target.perp_dist_to_robot() < consts.DOOR_PROXIMITY_THRESHOLD)
             {
-                move_robot(0,0,0);
-                qInfo() << "GOTO_DOOR Target achieved";
-                state = States::ALIGN;
+                move_robot(1,0, 0);
+                qInfo() << "GOTO_DOOR Objetivo alcanzado";
+                estado = Estados::ALIGN;
             }
-            else    // do what you have to do and stay in this state
+            else
             {
                 float rot = -0.5 * door_target.perp_angle_to_robot();
                 float adv = consts.MAX_ADV_SPEED * break_adv(door_target.perp_dist_to_robot()) *
@@ -130,38 +130,33 @@ void SpecificWorker::state_machine(const Doors &doors)
             }
             break;
         }
-        case States::ALIGN:
+        case Estados::ALIGN:
         {
             if( fabs(door_target.angle_to_robot()) < 0.02)
             {
                 move_robot(0,0,0);
-                state = States::GO_THROUGH;
+                estado = Estados::GO_THROUGH;
                 return;
             }
-            //qInfo() << door_target.angle_to_robot();
             float rot = -0.5 * door_target.angle_to_robot();
             move_robot(0,0,rot);
             break;
         }
-        case States::GO_THROUGH:
+        case Estados::GO_THROUGH:
         {
             auto now = std::chrono::steady_clock::now();
 
-            // Check if the state just started
-            if (!goThroughStartTime.time_since_epoch().count())
-                goThroughStartTime = now;
+            if (!InicioTimer.time_since_epoch().count())
+                InicioTimer = now;
 
-            // Check if 5000 ms have passed
-            if (std::chrono::duration_cast<std::chrono::milliseconds>(now - goThroughStartTime) < std::chrono::milliseconds(10000))
+            if (std::chrono::duration_cast<std::chrono::milliseconds>(now - InicioTimer) < std::chrono::milliseconds(10000))
             {
-                // Less than 5 seconds have passed, continue moving the robot
                 move_robot(0, 1.0, 0);
             }
             else
             {
-                // 5 seconds have passed, reset the timer and change state
-                goThroughStartTime = std::chrono::steady_clock::time_point();  // Reset timer
-                state = States::SEARCH_DOOR; // Transition to the next state
+                InicioTimer = std::chrono::steady_clock::time_point();
+                estado = Estados::SEARCH_DOOR;
             }
             break;
         }
@@ -178,8 +173,8 @@ void SpecificWorker::match_door_target(const Doors &doors, const Door &target)
     else
     {
         move_robot(0,0,0);
-        state = States::SEARCH_DOOR;
-        qInfo() << "GOTO_DOOR Door lost, searching";
+        estado = Estados::SEARCH_DOOR;
+        qInfo() << "GOTO_DOOR Puerta perdida, buscando";
     }
 }
 
@@ -192,10 +187,12 @@ SpecificWorker::Lines SpecificWorker::extract_lines(const RoboCompLidar3D::TPoin
                 lines[i].emplace_back(p.x, p.y);
     return lines;
 }
+
 float SpecificWorker::break_adv(float dist_to_target)
 {
     return std::clamp(dist_to_target / consts.DOOR_PROXIMITY_THRESHOLD, 0.f, 1.f );
 }
+
 float SpecificWorker::break_rot(float rot)
 {
     return rot>=0 ? std::clamp(1-rot, 0.f, 1.f) : std::clamp(rot+1, 0.f, 1.f);
@@ -230,11 +227,12 @@ void SpecificWorker::draw_lidar(const RoboCompLidar3D::TPoints &points, Abstract
     for(const auto &p : points)
     {
         auto point = viewer->scene.addRect(-50,-50,100, 100,
-                                           QPen(QColor("lightblue")), QBrush(QColor("lightblue")));
+                                           QPen(QColor("red")), QBrush(QColor("red")));
         point->setPos(p.x, p.y);
         borrar.push_back(point);
     }
 }
+
 void SpecificWorker::draw_target_door(const Door &target, AbstractGraphicViewer *viewer, QColor color, QColor color_far)
 {
     static std::vector<QGraphicsItem *> borrar;
@@ -266,44 +264,11 @@ void SpecificWorker::draw_lines(const Lines &lines, AbstractGraphicViewer *pView
         for(const auto &p : line)
         {
             auto point = pViewer->scene.addRect(-50,-50,100, 100,
-                                                QPen(QColor("lightblue")), QBrush(QColor("lightblue")));
+                                                QPen(QColor("red")), QBrush(QColor("red")));
             point->setPos(p.x(), p.y());
             borrar.push_back(point);
         }
 }
-
-//void SpecificWorker::draw_doors(const Doors &doors, AbstractGraphicViewer *viewer, QColor color)
-//{
-//    static std::vector<QGraphicsItem *> borrar;
-//    for (auto &b: borrar) {
-//        viewer->scene.removeItem(b);
-//        delete b;
-//    }
-//    borrar.clear();
-//
-//    QColor target_color;
-//    for (const auto &d: doors)
-//    {
-//        if(d == door_target)
-//        {
-//            target_color = QColor("magenta");
-//            auto middle = viewer->scene.addRect(-100, -100, 200, 200, QColor("orange"), QBrush(QColor("orange")));
-//            auto perp = door_target.perpendicular_point();
-//            middle->setPos(perp.x, perp.y);
-//            borrar.push_back(middle);
-//        }
-//        else
-//            target_color = color;
-//        auto point = viewer->scene.addRect(-50, -50, 100, 100, QPen(target_color), QBrush(target_color));
-//        point->setPos(d.left.x, d.left.y);
-//        borrar.push_back(point);
-//        point = viewer->scene.addRect(-50, -50, 100, 100, QPen(target_color), QBrush(target_color));
-//        point->setPos(d.right.x, d.right.y);
-//        borrar.push_back(point);
-//        auto line = viewer->scene.addLine(d.left.x, d.left.y, d.right.x, d.right.y, QPen(target_color, 50));
-//        borrar.push_back(line);
-//    }
-//}
 
 /**************************************/
 // From the RoboCompLidar3D you can call this methods:
