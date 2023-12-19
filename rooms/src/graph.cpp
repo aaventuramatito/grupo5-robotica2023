@@ -6,10 +6,10 @@ Graph::Graph()
     nodes.push_back(0);
 }
 
-int Graph::add_node()
+int Graph::add_node(int roomID)
 {
-    nodes.push_back(nodes.size());
-    return nodes.size();
+    nodes.push_back(roomID);
+    return roomID;
 }
 
 int Graph::add_edge(int n1, int n2) {

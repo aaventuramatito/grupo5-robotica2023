@@ -207,11 +207,34 @@ void SpecificWorker::move_robot(float side, float adv, float rot)
     catch(const Ice::Exception &e){ std::cout << e << std::endl;}
 }
 
+int SpecificWorker::asignarIDHabitacion()
+{
+    int roomID = nextRoomID;
+    nextRoomID++;
+    return roomID;
+}
+
+void SpecificWorker::inicializarGrafo()
+{
+    for (int i = 0; i < NUM_HABITACIONES; ++i)
+    {
+        int currentRoomID = asignarIDHabitacion();
+        graph.add_node(currentRoomID);
+    }
+
+    graph.add_edge(1, 2);
+    graph.add_edge(2, 3);
+    graph.add_edge(3, 4);
+
+    graph.print();
+}
+
 ////////////////////////////////////////////////////////////////////////////
 int SpecificWorker::startup_check()
 {
     std::cout << "Startup check" << std::endl;
     QTimer::singleShot(200, qApp, SLOT(quit()));
+    inicializarGrafo();
     return 0;
 }
 

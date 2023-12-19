@@ -9,11 +9,10 @@ class Graph
     using Edges = std::vector<std::pair<int,int>>;
     Nodes nodes;
     Edges edges;
-    int current_node = 0;
 
 public:
     Graph();
-    int add_node();
+    int add_node(int roomID);
     int add_edge (int n1, int n2);
     void print();
 };

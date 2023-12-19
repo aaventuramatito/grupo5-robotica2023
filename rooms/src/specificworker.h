@@ -82,6 +82,11 @@ private:
     float break_rot(float rot);
 
     Graph graph;
+    const int NUM_HABITACIONES = 4;
+    int currentRoomID;
+    int nextRoomID;
+    int asignarIDHabitacion();
+    void inicializarGrafo();
 
 };
 #endif
