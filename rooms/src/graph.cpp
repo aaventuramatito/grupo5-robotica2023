@@ -6,10 +6,10 @@ Graph::Graph()
     nodes.push_back(0);
 }
 
-int Graph::add_node(int roomID)
+int Graph::add_node()
 {
-    nodes.push_back(roomID);
-    return roomID;
+    nodes.push_back(nodes.size());
+    return nodes.size();
 }
 
 int Graph::add_edge(int n1, int n2) {
@@ -30,15 +30,17 @@ void Graph::print()
     {
         std::cout<< n << " " ;
     }
-
     std::cout<<std::endl;
-
 
     for (const auto &e : edges)
     {
         std::cout<< e.first << " "  << e.second;
     }
-
     std::cout<<std::endl;
-
 }
+
+int Graph::node_count() const {
+    return nodes.size();
+}
+
+

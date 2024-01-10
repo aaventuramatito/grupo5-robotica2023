@@ -84,6 +84,10 @@ void SpecificWorker::compute()
 ///////////////////////////////////////////////////////////////////////////////
 void SpecificWorker::state_machine(const Doors &doors)
 {
+    const auto& currentNodes = graph.getNodes();
+    static int cont = 0;
+    static int lap = 1;
+
     switch (estado)
     {
         case Estados::IDLE:
@@ -115,6 +119,14 @@ void SpecificWorker::state_machine(const Doors &doors)
         }
         case Estados::GOTO_DOOR:
         {
+
+            if(graph.node_count() >= 4){
+
+                std::cout << "Actual lap: " << lap << std::endl;
+                std::cout << "Actual room: " << cont << std::endl;
+                    }
+            cout << "Los nodos del grafo son: ";
+            graph.print();
             if(door_target.perp_dist_to_robot() < consts.DOOR_PROXIMITY_THRESHOLD)
             {
                 move_robot(1,0, 0);
@@ -156,6 +168,25 @@ void SpecificWorker::state_machine(const Doors &doors)
             else
             {
                 InicioTimer = std::chrono::steady_clock::time_point();
+
+                if (graph.node_count() <= 3)
+                {
+                    int newNode = graph.add_node();
+                    graph.add_edge(newNode - 1, newNode);
+                }
+                //Cuando se vuelve a la primera habitacion del grafo, en vez de mostrar las habitaciones del grafo, se muestra reseteando el id de cada una de las habitaciones
+
+                else {
+                    cont++;
+
+                    if (cont == 4) {
+                        cont = 0;
+                        if(cont == 4){
+                            lap ++;
+                        }
+                    }
+
+                }
                 estado = Estados::SEARCH_DOOR;
             }
             break;
@@ -207,34 +238,20 @@ void SpecificWorker::move_robot(float side, float adv, float rot)
     catch(const Ice::Exception &e){ std::cout << e << std::endl;}
 }
 
-int SpecificWorker::asignarIDHabitacion()
-{
-    int roomID = nextRoomID;
-    nextRoomID++;
-    return roomID;
-}
+//int SpecificWorker::asignarIDHabitacion()
+//{
+//    int roomID = nextRoomID;
+//    nextRoomID++;
+//    return roomID;
+//}
 
-void SpecificWorker::inicializarGrafo()
-{
-    for (int i = 0; i < NUM_HABITACIONES; ++i)
-    {
-        int currentRoomID = asignarIDHabitacion();
-        graph.add_node(currentRoomID);
-    }
-
-    graph.add_edge(1, 2);
-    graph.add_edge(2, 3);
-    graph.add_edge(3, 4);
-
-    graph.print();
-}
 
 ////////////////////////////////////////////////////////////////////////////
 int SpecificWorker::startup_check()
 {
     std::cout << "Startup check" << std::endl;
     QTimer::singleShot(200, qApp, SLOT(quit()));
-    inicializarGrafo();
+    //inicializarGrafo();
     return 0;
 }
 
