@@ -173,6 +173,7 @@ void SpecificWorker::state_machine(const Doors &doors)
                 {
                     int newNode = graph.add_node();
                     graph.add_edge(newNode - 1, newNode);
+
                 }
                 //Cuando se vuelve a la primera habitacion del grafo, en vez de mostrar las habitaciones del grafo, se muestra reseteando el id de cada una de las habitaciones
 
@@ -181,9 +182,8 @@ void SpecificWorker::state_machine(const Doors &doors)
 
                     if (cont == 4) {
                         cont = 0;
-                        if(cont == 4){
-                            lap ++;
-                        }
+                        lap ++;
+
                     }
 
                 }

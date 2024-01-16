@@ -34,7 +34,7 @@ void Graph::print()
 
     for (const auto &e : edges)
     {
-        std::cout<< e.first << " "  << e.second;
+        std::cout<< e.first << " "  << e.second <<std::endl;
     }
     std::cout<<std::endl;
 }
