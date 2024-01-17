@@ -7,35 +7,13 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   CMake that the project does not need compatibility with older versions.
 
 
--- The C compiler identification is GNU 11.4.0
--- The CXX compiler identification is GNU 11.4.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
 CMake Warning at src/CMakeLists.txt:5 (MESSAGE):
   ROBOCOMP variable not set.  Using the default value:
   /home/robocomp/robocomp
 
 
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
--- Found Threads: TRUE  
--- Performing Test HAVE_STDATOMIC
--- Performing Test HAVE_STDATOMIC - Success
--- Found WrapAtomic: TRUE  
 -- COMPILING WITH QT6
--- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
--- Found WrapOpenGL: TRUE  
 -- Could NOT find XKB (missing: XKB_LIBRARY XKB_INCLUDE_DIR) (Required is at least version "0.5.0")
--- Found WrapVulkanHeaders: /usr/include  
--- Found OpenCV: /usr (found suitable version "4.5.4", minimum required is "4") 
 -- opencv_calib3dopencv_coreopencv_dnnopencv_features2dopencv_flannopencv_highguiopencv_imgcodecsopencv_imgprocopencv_mlopencv_objdetectopencv_photoopencv_stitchingopencv_videoopencv_videoioopencv_alphamatopencv_arucoopencv_barcodeopencv_bgsegmopencv_bioinspiredopencv_ccalibopencv_datasetsopencv_dnn_objdetectopencv_dnn_superresopencv_dpmopencv_faceopencv_freetypeopencv_fuzzyopencv_hdfopencv_hfsopencv_img_hashopencv_intensity_transformopencv_line_descriptoropencv_mccopencv_optflowopencv_phase_unwrappingopencv_plotopencv_qualityopencv_rapidopencv_regopencv_rgbdopencv_saliencyopencv_shapeopencv_stereoopencv_structured_lightopencv_superresopencv_surface_matchingopencv_textopencv_trackingopencv_videostabopencv_vizopencv_wechat_qrcodeopencv_ximgprocopencv_xobjdetectopencv_xphoto
 -- Ice version: 3.7.6
 -- Found the following Ice libraries:
@@ -60,6 +38,6 @@ CMake Warning at src/CMakeLists.txt:5 (MESSAGE):
 -- BU ice=>h/cpp: Adding rule to generate Lidar3D.h and Lidar3D.cpp from /home/robocomp/robocomp/components/grupo5-robotica2023/rooms/src/Lidar3D.ice
 -- BU ice=>h/cpp: Adding rule to generate OmniRobot.h and OmniRobot.cpp from /home/robocomp/robocomp/components/grupo5-robotica2023/rooms/src/OmniRobot.ice
 -- Generating header file from mainUI.ui
--- Configuring done (0.5s)
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/robocomp/robocomp/components/grupo5-robotica2023/rooms/cmake-build-debug

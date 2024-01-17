@@ -1,5 +1,10 @@
 #include "graph.h"
 #include <ranges>
+#include <cppitertools/sliding_window.hpp>
+#include <cppitertools/combinations.hpp>
+#include <cppitertools/enumerate.hpp>
+#include <qdebug.h>
+
 
 Graph::Graph()
 {
@@ -9,7 +14,7 @@ Graph::Graph()
 int Graph::add_node()
 {
     nodes.push_back(nodes.size());
-    return nodes.size();
+    return nodes.size()-1;
 }
 
 int Graph::add_edge(int n1, int n2) {
@@ -30,13 +35,15 @@ void Graph::print()
     {
         std::cout<< n << " " ;
     }
-    std::cout<<std::endl;
+    std::cout<<"\n";
 
+    std::cout<< "Arcos:  "  <<"\n";
     for (const auto &e : edges)
     {
-        std::cout<< e.first << " "  << e.second <<std::endl;
+
+        std::cout<< e.first << " "  << e.second <<"\n";
     }
-    std::cout<<std::endl;
+    std::cout<<"\n";
 }
 
 int Graph::node_count() const {

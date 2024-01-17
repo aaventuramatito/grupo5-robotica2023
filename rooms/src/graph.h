@@ -28,8 +28,6 @@ public:
     std::vector<int> getNodes() const {
         return nodes;
     }
-
-
     int node_count() const;
 };
 
